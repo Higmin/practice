@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.exercise.demo.dao.HibernateSequenceMapper">
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.HibernateSequence">
+<mapper namespace="com.exercise.reverseEngineering.dao.HibernateSequenceMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.HibernateSequence">
     <result column="next_val" jdbcType="BIGINT" property="nextVal" />
   </resultMap>
-  <insert id="insert" parameterType="com.exercise.demo.entity.HibernateSequence">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.HibernateSequence">
     insert into hibernate_sequence (next_val)
     values (#{nextVal,jdbcType=BIGINT})
   </insert>
@@ -12,10 +12,10 @@
     select next_val
     from hibernate_sequence
   </select>
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.HibernateSequence">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.HibernateSequence">
     <result column="next_val" jdbcType="BIGINT" property="nextVal" />
   </resultMap>
-  <insert id="insert" parameterType="com.exercise.demo.entity.HibernateSequence">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.HibernateSequence">
     insert into hibernate_sequence (next_val)
     values (#{nextVal,jdbcType=BIGINT})
   </insert>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.exercise.demo.dao.TAdapterInfoMapper">
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAdapterInfo">
+<mapper namespace="com.exercise.reverseEngineering.dao.TAdapterInfoMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TAdapterInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
     <result column="adapter_type" jdbcType="VARCHAR" property="adapterType" />
@@ -24,7 +24,7 @@
     delete from t_adapter_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.demo.entity.TAdapterInfo">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TAdapterInfo">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -41,7 +41,7 @@
       #{adapterVideoRelation,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isAlarm,jdbcType=VARCHAR}, 
       #{alarmTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAdapterInfo">
+  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TAdapterInfo">
     update t_adapter_info
     set adapter_number = #{adapterNumber,jdbcType=VARCHAR},
       adapter_type = #{adapterType,jdbcType=VARCHAR},
@@ -74,7 +74,7 @@
     adapter_video_relation, update_time, is_alarm, alarm_time, remark
     from t_adapter_info
   </select>
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAdapterInfo">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TAdapterInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
     <result column="adapter_type" jdbcType="VARCHAR" property="adapterType" />
@@ -97,7 +97,7 @@
     delete from t_adapter_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.demo.entity.TAdapterInfo">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TAdapterInfo">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -114,7 +114,7 @@
       #{adapterVideoRelation,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isAlarm,jdbcType=VARCHAR}, 
       #{alarmTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAdapterInfo">
+  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TAdapterInfo">
     update t_adapter_info
     set adapter_number = #{adapterNumber,jdbcType=VARCHAR},
       adapter_type = #{adapterType,jdbcType=VARCHAR},

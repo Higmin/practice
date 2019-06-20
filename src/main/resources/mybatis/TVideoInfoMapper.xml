@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.exercise.demo.dao.TVideoInfoMapper">
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TVideoInfo">
+<mapper namespace="com.exercise.reverseEngineering.dao.TVideoInfoMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TVideoInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="camera_number" jdbcType="VARCHAR" property="cameraNumber" />
     <result column="video_name" jdbcType="VARCHAR" property="videoName" />
@@ -20,7 +20,7 @@
     delete from t_video_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.demo.entity.TVideoInfo">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TVideoInfo">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -35,7 +35,7 @@
       #{alarmTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
       #{videoNumber,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TVideoInfo">
+  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TVideoInfo">
     update t_video_info
     set camera_number = #{cameraNumber,jdbcType=VARCHAR},
       video_name = #{videoName,jdbcType=VARCHAR},
@@ -62,7 +62,7 @@
     video_adapter_relation, is_alarm, alarm_time, update_time, remark, video_number
     from t_video_info
   </select>
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TVideoInfo">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TVideoInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="camera_number" jdbcType="VARCHAR" property="cameraNumber" />
     <result column="video_name" jdbcType="VARCHAR" property="videoName" />
@@ -81,7 +81,7 @@
     delete from t_video_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.demo.entity.TVideoInfo">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TVideoInfo">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -96,7 +96,7 @@
       #{alarmTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
       #{videoNumber,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TVideoInfo">
+  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TVideoInfo">
     update t_video_info
     set camera_number = #{cameraNumber,jdbcType=VARCHAR},
       video_name = #{videoName,jdbcType=VARCHAR},

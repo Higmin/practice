@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.exercise.demo.dao.TAlarmEventMapper">
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAlarmEvent">
+<mapper namespace="com.exercise.reverseEngineering.dao.TAlarmEventMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TAlarmEvent">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
@@ -21,7 +21,7 @@
     delete from t_alarm_event
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.demo.entity.TAlarmEvent">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TAlarmEvent">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -36,7 +36,7 @@
       #{adapterNumber,jdbcType=VARCHAR}, #{adapterDirection,jdbcType=VARCHAR}, #{ftpName,jdbcType=VARCHAR}, 
       #{cameraNumber,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAlarmEvent">
+  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TAlarmEvent">
     update t_alarm_event
     set type = #{type,jdbcType=VARCHAR},
       alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
@@ -66,7 +66,7 @@
     remark
     from t_alarm_event
   </select>
-  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAlarmEvent">
+  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TAlarmEvent">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
@@ -86,7 +86,7 @@
     delete from t_alarm_event
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.demo.entity.TAlarmEvent">
+  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TAlarmEvent">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -101,7 +101,7 @@
       #{adapterNumber,jdbcType=VARCHAR}, #{adapterDirection,jdbcType=VARCHAR}, #{ftpName,jdbcType=VARCHAR}, 
       #{cameraNumber,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAlarmEvent">
+  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TAlarmEvent">
     update t_alarm_event
     set type = #{type,jdbcType=VARCHAR},
       alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
