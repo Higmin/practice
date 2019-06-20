@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exercise.demo.dao.TAdapterInfoMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAdapterInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
+    <result column="adapter_type" jdbcType="VARCHAR" property="adapterType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="adapter_ip" jdbcType="VARCHAR" property="adapterIp" />
+    <result column="adapter_status" jdbcType="VARCHAR" property="adapterStatus" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="adapter_site" jdbcType="VARCHAR" property="adapterSite" />
+    <result column="adapter_direction" jdbcType="VARCHAR" property="adapterDirection" />
+    <result column="ftp_name" jdbcType="VARCHAR" property="ftpName" />
+    <result column="adapter_adapter_relation" jdbcType="VARCHAR" property="adapterAdapterRelation" />
+    <result column="adapter_video_relation" jdbcType="VARCHAR" property="adapterVideoRelation" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_alarm" jdbcType="VARCHAR" property="isAlarm" />
+    <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_adapter_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TAdapterInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_adapter_info (id, adapter_number, adapter_type, 
+      create_time, adapter_ip, adapter_status, 
+      floor_number, room_number, adapter_site, 
+      adapter_direction, ftp_name, adapter_adapter_relation, 
+      adapter_video_relation, update_time, is_alarm, 
+      alarm_time, remark)
+    values (#{id,jdbcType=INTEGER}, #{adapterNumber,jdbcType=VARCHAR}, #{adapterType,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{adapterIp,jdbcType=VARCHAR}, #{adapterStatus,jdbcType=VARCHAR}, 
+      #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, #{adapterSite,jdbcType=VARCHAR}, 
+      #{adapterDirection,jdbcType=VARCHAR}, #{ftpName,jdbcType=VARCHAR}, #{adapterAdapterRelation,jdbcType=VARCHAR}, 
+      #{adapterVideoRelation,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isAlarm,jdbcType=VARCHAR}, 
+      #{alarmTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAdapterInfo">
+    update t_adapter_info
+    set adapter_number = #{adapterNumber,jdbcType=VARCHAR},
+      adapter_type = #{adapterType,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      adapter_ip = #{adapterIp,jdbcType=VARCHAR},
+      adapter_status = #{adapterStatus,jdbcType=VARCHAR},
+      floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      adapter_site = #{adapterSite,jdbcType=VARCHAR},
+      adapter_direction = #{adapterDirection,jdbcType=VARCHAR},
+      ftp_name = #{ftpName,jdbcType=VARCHAR},
+      adapter_adapter_relation = #{adapterAdapterRelation,jdbcType=VARCHAR},
+      adapter_video_relation = #{adapterVideoRelation,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_alarm = #{isAlarm,jdbcType=VARCHAR},
+      alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, adapter_number, adapter_type, create_time, adapter_ip, adapter_status, 
+    floor_number, room_number, adapter_site, adapter_direction, ftp_name, adapter_adapter_relation, 
+    adapter_video_relation, update_time, is_alarm, alarm_time, remark
+    from t_adapter_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, adapter_number, adapter_type, create_time, adapter_ip, adapter_status, 
+    floor_number, room_number, adapter_site, adapter_direction, ftp_name, adapter_adapter_relation, 
+    adapter_video_relation, update_time, is_alarm, alarm_time, remark
+    from t_adapter_info
+  </select>
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAdapterInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
+    <result column="adapter_type" jdbcType="VARCHAR" property="adapterType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="adapter_ip" jdbcType="VARCHAR" property="adapterIp" />
+    <result column="adapter_status" jdbcType="VARCHAR" property="adapterStatus" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="adapter_site" jdbcType="VARCHAR" property="adapterSite" />
+    <result column="adapter_direction" jdbcType="VARCHAR" property="adapterDirection" />
+    <result column="ftp_name" jdbcType="VARCHAR" property="ftpName" />
+    <result column="adapter_adapter_relation" jdbcType="VARCHAR" property="adapterAdapterRelation" />
+    <result column="adapter_video_relation" jdbcType="VARCHAR" property="adapterVideoRelation" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_alarm" jdbcType="VARCHAR" property="isAlarm" />
+    <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_adapter_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TAdapterInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_adapter_info (id, adapter_number, adapter_type, 
+      create_time, adapter_ip, adapter_status, 
+      floor_number, room_number, adapter_site, 
+      adapter_direction, ftp_name, adapter_adapter_relation, 
+      adapter_video_relation, update_time, is_alarm, 
+      alarm_time, remark)
+    values (#{id,jdbcType=INTEGER}, #{adapterNumber,jdbcType=VARCHAR}, #{adapterType,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{adapterIp,jdbcType=VARCHAR}, #{adapterStatus,jdbcType=VARCHAR}, 
+      #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, #{adapterSite,jdbcType=VARCHAR}, 
+      #{adapterDirection,jdbcType=VARCHAR}, #{ftpName,jdbcType=VARCHAR}, #{adapterAdapterRelation,jdbcType=VARCHAR}, 
+      #{adapterVideoRelation,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isAlarm,jdbcType=VARCHAR}, 
+      #{alarmTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAdapterInfo">
+    update t_adapter_info
+    set adapter_number = #{adapterNumber,jdbcType=VARCHAR},
+      adapter_type = #{adapterType,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      adapter_ip = #{adapterIp,jdbcType=VARCHAR},
+      adapter_status = #{adapterStatus,jdbcType=VARCHAR},
+      floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      adapter_site = #{adapterSite,jdbcType=VARCHAR},
+      adapter_direction = #{adapterDirection,jdbcType=VARCHAR},
+      ftp_name = #{ftpName,jdbcType=VARCHAR},
+      adapter_adapter_relation = #{adapterAdapterRelation,jdbcType=VARCHAR},
+      adapter_video_relation = #{adapterVideoRelation,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_alarm = #{isAlarm,jdbcType=VARCHAR},
+      alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, adapter_number, adapter_type, create_time, adapter_ip, adapter_status, 
+    floor_number, room_number, adapter_site, adapter_direction, ftp_name, adapter_adapter_relation, 
+    adapter_video_relation, update_time, is_alarm, alarm_time, remark
+    from t_adapter_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, adapter_number, adapter_type, create_time, adapter_ip, adapter_status, 
+    floor_number, room_number, adapter_site, adapter_direction, ftp_name, adapter_adapter_relation, 
+    adapter_video_relation, update_time, is_alarm, alarm_time, remark
+    from t_adapter_info
+  </select>
+</mapper>

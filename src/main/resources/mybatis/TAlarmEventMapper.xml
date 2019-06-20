@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exercise.demo.dao.TAlarmEventMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAlarmEvent">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
+    <result column="alarm_content" jdbcType="VARCHAR" property="alarmContent" />
+    <result column="alarm_key" jdbcType="VARCHAR" property="alarmKey" />
+    <result column="alarm_value" jdbcType="VARCHAR" property="alarmValue" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="prison_site" jdbcType="VARCHAR" property="prisonSite" />
+    <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
+    <result column="adapter_direction" jdbcType="VARCHAR" property="adapterDirection" />
+    <result column="ftp_name" jdbcType="VARCHAR" property="ftpName" />
+    <result column="camera_number" jdbcType="VARCHAR" property="cameraNumber" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_alarm_event
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TAlarmEvent">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_alarm_event (id, type, alarm_time, 
+      alarm_content, alarm_key, alarm_value, 
+      floor_number, room_number, prison_site, 
+      adapter_number, adapter_direction, ftp_name, 
+      camera_number, remark)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{alarmTime,jdbcType=TIMESTAMP}, 
+      #{alarmContent,jdbcType=VARCHAR}, #{alarmKey,jdbcType=VARCHAR}, #{alarmValue,jdbcType=VARCHAR}, 
+      #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, #{prisonSite,jdbcType=VARCHAR}, 
+      #{adapterNumber,jdbcType=VARCHAR}, #{adapterDirection,jdbcType=VARCHAR}, #{ftpName,jdbcType=VARCHAR}, 
+      #{cameraNumber,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAlarmEvent">
+    update t_alarm_event
+    set type = #{type,jdbcType=VARCHAR},
+      alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      alarm_content = #{alarmContent,jdbcType=VARCHAR},
+      alarm_key = #{alarmKey,jdbcType=VARCHAR},
+      alarm_value = #{alarmValue,jdbcType=VARCHAR},
+      floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      prison_site = #{prisonSite,jdbcType=VARCHAR},
+      adapter_number = #{adapterNumber,jdbcType=VARCHAR},
+      adapter_direction = #{adapterDirection,jdbcType=VARCHAR},
+      ftp_name = #{ftpName,jdbcType=VARCHAR},
+      camera_number = #{cameraNumber,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, type, alarm_time, alarm_content, alarm_key, alarm_value, floor_number, 
+    room_number, prison_site, adapter_number, adapter_direction, ftp_name, camera_number, 
+    remark
+    from t_alarm_event
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, type, alarm_time, alarm_content, alarm_key, alarm_value, floor_number, 
+    room_number, prison_site, adapter_number, adapter_direction, ftp_name, camera_number, 
+    remark
+    from t_alarm_event
+  </select>
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TAlarmEvent">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
+    <result column="alarm_content" jdbcType="VARCHAR" property="alarmContent" />
+    <result column="alarm_key" jdbcType="VARCHAR" property="alarmKey" />
+    <result column="alarm_value" jdbcType="VARCHAR" property="alarmValue" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="prison_site" jdbcType="VARCHAR" property="prisonSite" />
+    <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
+    <result column="adapter_direction" jdbcType="VARCHAR" property="adapterDirection" />
+    <result column="ftp_name" jdbcType="VARCHAR" property="ftpName" />
+    <result column="camera_number" jdbcType="VARCHAR" property="cameraNumber" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_alarm_event
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TAlarmEvent">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_alarm_event (id, type, alarm_time, 
+      alarm_content, alarm_key, alarm_value, 
+      floor_number, room_number, prison_site, 
+      adapter_number, adapter_direction, ftp_name, 
+      camera_number, remark)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{alarmTime,jdbcType=TIMESTAMP}, 
+      #{alarmContent,jdbcType=VARCHAR}, #{alarmKey,jdbcType=VARCHAR}, #{alarmValue,jdbcType=VARCHAR}, 
+      #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, #{prisonSite,jdbcType=VARCHAR}, 
+      #{adapterNumber,jdbcType=VARCHAR}, #{adapterDirection,jdbcType=VARCHAR}, #{ftpName,jdbcType=VARCHAR}, 
+      #{cameraNumber,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TAlarmEvent">
+    update t_alarm_event
+    set type = #{type,jdbcType=VARCHAR},
+      alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      alarm_content = #{alarmContent,jdbcType=VARCHAR},
+      alarm_key = #{alarmKey,jdbcType=VARCHAR},
+      alarm_value = #{alarmValue,jdbcType=VARCHAR},
+      floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      prison_site = #{prisonSite,jdbcType=VARCHAR},
+      adapter_number = #{adapterNumber,jdbcType=VARCHAR},
+      adapter_direction = #{adapterDirection,jdbcType=VARCHAR},
+      ftp_name = #{ftpName,jdbcType=VARCHAR},
+      camera_number = #{cameraNumber,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, type, alarm_time, alarm_content, alarm_key, alarm_value, floor_number, 
+    room_number, prison_site, adapter_number, adapter_direction, ftp_name, camera_number, 
+    remark
+    from t_alarm_event
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, type, alarm_time, alarm_content, alarm_key, alarm_value, floor_number, 
+    room_number, prison_site, adapter_number, adapter_direction, ftp_name, camera_number, 
+    remark
+    from t_alarm_event
+  </select>
+</mapper>

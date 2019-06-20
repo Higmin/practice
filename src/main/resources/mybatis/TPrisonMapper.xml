@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exercise.demo.dao.TPrisonMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TPrison">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="prison_site" jdbcType="VARCHAR" property="prisonSite" />
+    <result column="video_number" jdbcType="VARCHAR" property="videoNumber" />
+    <result column="video_name" jdbcType="VARCHAR" property="videoName" />
+    <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
+    <result column="is_alarm" jdbcType="VARCHAR" property="isAlarm" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_prison
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TPrison">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_prison (id, floor_number, room_number, 
+      prison_site, video_number, video_name, 
+      adapter_number, is_alarm, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, 
+      #{prisonSite,jdbcType=VARCHAR}, #{videoNumber,jdbcType=VARCHAR}, #{videoName,jdbcType=VARCHAR}, 
+      #{adapterNumber,jdbcType=VARCHAR}, #{isAlarm,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TPrison">
+    update t_prison
+    set floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      prison_site = #{prisonSite,jdbcType=VARCHAR},
+      video_number = #{videoNumber,jdbcType=VARCHAR},
+      video_name = #{videoName,jdbcType=VARCHAR},
+      adapter_number = #{adapterNumber,jdbcType=VARCHAR},
+      is_alarm = #{isAlarm,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, floor_number, room_number, prison_site, video_number, video_name, adapter_number, 
+    is_alarm, remark
+    from t_prison
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, floor_number, room_number, prison_site, video_number, video_name, adapter_number, 
+    is_alarm, remark
+    from t_prison
+  </select>
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TPrison">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="prison_site" jdbcType="VARCHAR" property="prisonSite" />
+    <result column="video_number" jdbcType="VARCHAR" property="videoNumber" />
+    <result column="video_name" jdbcType="VARCHAR" property="videoName" />
+    <result column="adapter_number" jdbcType="VARCHAR" property="adapterNumber" />
+    <result column="is_alarm" jdbcType="VARCHAR" property="isAlarm" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_prison
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TPrison">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_prison (id, floor_number, room_number, 
+      prison_site, video_number, video_name, 
+      adapter_number, is_alarm, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, 
+      #{prisonSite,jdbcType=VARCHAR}, #{videoNumber,jdbcType=VARCHAR}, #{videoName,jdbcType=VARCHAR}, 
+      #{adapterNumber,jdbcType=VARCHAR}, #{isAlarm,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TPrison">
+    update t_prison
+    set floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      prison_site = #{prisonSite,jdbcType=VARCHAR},
+      video_number = #{videoNumber,jdbcType=VARCHAR},
+      video_name = #{videoName,jdbcType=VARCHAR},
+      adapter_number = #{adapterNumber,jdbcType=VARCHAR},
+      is_alarm = #{isAlarm,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, floor_number, room_number, prison_site, video_number, video_name, adapter_number, 
+    is_alarm, remark
+    from t_prison
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, floor_number, room_number, prison_site, video_number, video_name, adapter_number, 
+    is_alarm, remark
+    from t_prison
+  </select>
+</mapper>

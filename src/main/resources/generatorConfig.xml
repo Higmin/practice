@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--
+MyBatis-generator配置文件：配置数据源、生成目录、方式等。
+properties?,classPathEntry*,context+
+-->
+<generatorConfiguration>
+    <!--配置数据库连接、MyBatis-Generator资源文件-->
+    <properties resource="jdbc.properties"/>
+    <!--
+    property*,plugin*,commentGenerator?,jdbcConnection,
+    javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,
+    table+
+    -->
+    <!--MyBatis3Simple：兼容MyBatis3.0或更高版本，无Example方法。
+    DefaultModelType=true：每张表一个实体类，包含所有字段。-->
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <!--区分表名的分隔符，MySql为`table_name`，oracle为"table_name"-->
+        <property name="beginningDelimiter" value="${mgb.table.delimiter}"/>
+        <property name="endingDelimiter" value="${mgb.table.delimiter}"/>
+
+        <!--生成的实体类自动添加的方法：toString、equals和hashCode-->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="${jdbc.driverClassName}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!--Java实体类(XxxxEntity.java)生成配置 targetProject+targetPackage构成全路径-->
+        <javaModelGenerator targetPackage="${mgb.entity.package}" targetProject="${mgb.entity.project}">
+            <!--是否允许建立子包（对应MySql的scheme）-->
+            <property name="enableSubPackages" value="${mgb.enableSubPackages}"/>
+            <!--是否对查询结果进行Trim()操作，如return this.username.trim();-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--XML映射文件(XxxxDao.xml)生成配置 targetProject+targetPackage构成全路径-->
+        <sqlMapGenerator targetPackage="${mgb.xml.package}" targetProject="${mgb.xml.project}">
+            <!--是否允许建立子包（对应MySql的scheme）-->
+            <property name="enableSubPackages" value="${mgb.enableSubPackages}"/>
+        </sqlMapGenerator>
+
+        <!--JavaDao层接口(XxxxDao.java)生成配置 targetProject+targetPackage构成全路径-->
+        <javaClientGenerator targetPackage="${mgb.dao.package}" targetProject="${mgb.dao.project}" type="XMLMAPPER">
+            <!--是否允许建立子包（对应MySql的scheme）-->
+            <property name="enableSubPackages" value="${mgb.enableSubPackages}"/>
+        </javaClientGenerator>
+
+        <!--数据库对应关系配置：配置要生成的schema、table-->
+        <table schema="cms" tableName="%">
+            <!--将命名为*id的字段生成为主键-->
+            <generatedKey column="id" sqlStatement="MySql"/>
+        </table>
+    </context>
+</generatorConfiguration>

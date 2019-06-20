@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exercise.demo.dao.TVideoInfoMapper">
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TVideoInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="camera_number" jdbcType="VARCHAR" property="cameraNumber" />
+    <result column="video_name" jdbcType="VARCHAR" property="videoName" />
+    <result column="video_time" jdbcType="TIMESTAMP" property="videoTime" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="video_site" jdbcType="VARCHAR" property="videoSite" />
+    <result column="video_adapter_relation" jdbcType="VARCHAR" property="videoAdapterRelation" />
+    <result column="is_alarm" jdbcType="VARCHAR" property="isAlarm" />
+    <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="video_number" jdbcType="VARCHAR" property="videoNumber" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_video_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TVideoInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_video_info (id, camera_number, video_name, 
+      video_time, floor_number, room_number, 
+      video_site, video_adapter_relation, is_alarm, 
+      alarm_time, update_time, remark, 
+      video_number)
+    values (#{id,jdbcType=INTEGER}, #{cameraNumber,jdbcType=VARCHAR}, #{videoName,jdbcType=VARCHAR}, 
+      #{videoTime,jdbcType=TIMESTAMP}, #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, 
+      #{videoSite,jdbcType=VARCHAR}, #{videoAdapterRelation,jdbcType=VARCHAR}, #{isAlarm,jdbcType=VARCHAR}, 
+      #{alarmTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{videoNumber,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TVideoInfo">
+    update t_video_info
+    set camera_number = #{cameraNumber,jdbcType=VARCHAR},
+      video_name = #{videoName,jdbcType=VARCHAR},
+      video_time = #{videoTime,jdbcType=TIMESTAMP},
+      floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      video_site = #{videoSite,jdbcType=VARCHAR},
+      video_adapter_relation = #{videoAdapterRelation,jdbcType=VARCHAR},
+      is_alarm = #{isAlarm,jdbcType=VARCHAR},
+      alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      video_number = #{videoNumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, camera_number, video_name, video_time, floor_number, room_number, video_site, 
+    video_adapter_relation, is_alarm, alarm_time, update_time, remark, video_number
+    from t_video_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, camera_number, video_name, video_time, floor_number, room_number, video_site, 
+    video_adapter_relation, is_alarm, alarm_time, update_time, remark, video_number
+    from t_video_info
+  </select>
+  <resultMap id="BaseResultMap" type="com.exercise.demo.entity.TVideoInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="camera_number" jdbcType="VARCHAR" property="cameraNumber" />
+    <result column="video_name" jdbcType="VARCHAR" property="videoName" />
+    <result column="video_time" jdbcType="TIMESTAMP" property="videoTime" />
+    <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
+    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+    <result column="video_site" jdbcType="VARCHAR" property="videoSite" />
+    <result column="video_adapter_relation" jdbcType="VARCHAR" property="videoAdapterRelation" />
+    <result column="is_alarm" jdbcType="VARCHAR" property="isAlarm" />
+    <result column="alarm_time" jdbcType="TIMESTAMP" property="alarmTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="video_number" jdbcType="VARCHAR" property="videoNumber" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_video_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.demo.entity.TVideoInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_video_info (id, camera_number, video_name, 
+      video_time, floor_number, room_number, 
+      video_site, video_adapter_relation, is_alarm, 
+      alarm_time, update_time, remark, 
+      video_number)
+    values (#{id,jdbcType=INTEGER}, #{cameraNumber,jdbcType=VARCHAR}, #{videoName,jdbcType=VARCHAR}, 
+      #{videoTime,jdbcType=TIMESTAMP}, #{floorNumber,jdbcType=INTEGER}, #{roomNumber,jdbcType=INTEGER}, 
+      #{videoSite,jdbcType=VARCHAR}, #{videoAdapterRelation,jdbcType=VARCHAR}, #{isAlarm,jdbcType=VARCHAR}, 
+      #{alarmTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{videoNumber,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.demo.entity.TVideoInfo">
+    update t_video_info
+    set camera_number = #{cameraNumber,jdbcType=VARCHAR},
+      video_name = #{videoName,jdbcType=VARCHAR},
+      video_time = #{videoTime,jdbcType=TIMESTAMP},
+      floor_number = #{floorNumber,jdbcType=INTEGER},
+      room_number = #{roomNumber,jdbcType=INTEGER},
+      video_site = #{videoSite,jdbcType=VARCHAR},
+      video_adapter_relation = #{videoAdapterRelation,jdbcType=VARCHAR},
+      is_alarm = #{isAlarm,jdbcType=VARCHAR},
+      alarm_time = #{alarmTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      video_number = #{videoNumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, camera_number, video_name, video_time, floor_number, room_number, video_site, 
+    video_adapter_relation, is_alarm, alarm_time, update_time, remark, video_number
+    from t_video_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, camera_number, video_name, video_time, floor_number, room_number, video_site, 
+    video_adapter_relation, is_alarm, alarm_time, update_time, remark, video_number
+    from t_video_info
+  </select>
+</mapper>
