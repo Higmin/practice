@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @Auther : guojianmin
  * @Date : 2019/6/20 15:58
- * @Description : TODO用一句话描述此类的作用
+ * @Description : 观察者模式
  */
 public class Test {
     public void test(){

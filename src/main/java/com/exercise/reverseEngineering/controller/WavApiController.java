@@ -3,7 +3,7 @@ package com.exercise.reverseEngineering.controller;
 /**
  * @Auther : guojianmin
  * @Date :
- * @Description : TODO用一句话描述此类的作用
+ * @Description : 断点续传文件 Controller
  */
 import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.beans.factory.annotation.Value;

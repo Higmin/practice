@@ -1,4 +1,4 @@
-package com.exercise.designPatterns.guanChaZheMoShi;
+package com.exercise.designPatterns.behaviorType.observerMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 被观察者，也就是微信公众号服务
  * 实现了Observerable接口，对Observerable接口的三个方法进行了具体实现
- * @author jstao
+ * @author guojianmin
  *
  */
 public class WechatServer implements Observerable {

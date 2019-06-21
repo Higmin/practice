@@ -1,9 +1,9 @@
-package com.exercise.designPatterns.guanChaZheMoShi;
+package com.exercise.designPatterns.behaviorType.observerMode;
 
 /**
  * @Auther : guojianmin
  * @Date :
- * @Description : TODO用一句话描述此类的作用
+ * @Description : 观察者模式
  */
 public class Test {
 
