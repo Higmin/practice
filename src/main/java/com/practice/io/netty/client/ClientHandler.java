@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * @Auther : guojianmin
  * @Date : 2019/6/25 16:25
- * @Description : TODO用一句话描述此类的作用
+ * @Description : ClientHandler
  */
 public class ClientHandler extends ChannelInboundHandlerAdapter {
     ChannelHandlerContext ctx;
