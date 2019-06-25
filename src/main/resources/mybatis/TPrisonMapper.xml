@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.exercise.reverseEngineering.dao.TPrisonMapper">
-  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TPrison">
+<mapper namespace="com.practice.reverseEngineering.dao.TPrisonMapper">
+  <resultMap id="BaseResultMap" type="com.practice.reverseEngineering.entity.TPrison">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
     <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
@@ -16,7 +16,7 @@
     delete from t_prison
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TPrison">
+  <insert id="insert" parameterType="com.practice.reverseEngineering.entity.TPrison">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -29,7 +29,7 @@
       #{adapterNumber,jdbcType=VARCHAR}, #{isAlarm,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TPrison">
+  <update id="updateByPrimaryKey" parameterType="com.practice.reverseEngineering.entity.TPrison">
     update t_prison
     set floor_number = #{floorNumber,jdbcType=INTEGER},
       room_number = #{roomNumber,jdbcType=INTEGER},
@@ -52,7 +52,7 @@
     is_alarm, remark
     from t_prison
   </select>
-  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TPrison">
+  <resultMap id="BaseResultMap" type="com.practice.reverseEngineering.entity.TPrison">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="floor_number" jdbcType="INTEGER" property="floorNumber" />
     <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
@@ -67,7 +67,7 @@
     delete from t_prison
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TPrison">
+  <insert id="insert" parameterType="com.practice.reverseEngineering.entity.TPrison">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -80,7 +80,7 @@
       #{adapterNumber,jdbcType=VARCHAR}, #{isAlarm,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TPrison">
+  <update id="updateByPrimaryKey" parameterType="com.practice.reverseEngineering.entity.TPrison">
     update t_prison
     set floor_number = #{floorNumber,jdbcType=INTEGER},
       room_number = #{roomNumber,jdbcType=INTEGER},

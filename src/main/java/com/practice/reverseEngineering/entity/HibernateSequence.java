@@ -1,4 +1,4 @@
-package com.exercise.reverseEngineering.entity;
+package com.practice.reverseEngineering.entity;
 
 public class HibernateSequence {
     private Long nextVal;

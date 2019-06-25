@@ -1,4 +1,4 @@
-package com.exercise.designPatterns.behaviorType.observerMode;
+package com.practice.designPatterns.behaviorType.observerMode;
 
 /***
  * 抽象被观察者接口

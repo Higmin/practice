@@ -1,4 +1,4 @@
-package com.exercise.designPatterns.creationType.builderMode;
+package com.practice.designPatterns.creationType.builderMode;
 
 /**
  * @Auther : guojianmin

@@ -1,4 +1,4 @@
-package com.exercise.lock;
+package com.practice.lock;
 
 import java.util.HashMap;
 import java.util.Map;

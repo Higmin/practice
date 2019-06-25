@@ -1,4 +1,4 @@
-package com.exercise.designPatterns.behaviorType.observerMode;
+package com.practice.designPatterns.behaviorType.observerMode;
 
 import java.util.ArrayList;
 import java.util.List;

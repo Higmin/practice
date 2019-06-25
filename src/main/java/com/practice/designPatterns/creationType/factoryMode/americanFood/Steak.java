@@ -1,6 +1,6 @@
-package com.exercise.designPatterns.creationType.factoryMode.americanFood;
+package com.practice.designPatterns.creationType.factoryMode.americanFood;
 
-import com.exercise.designPatterns.creationType.factoryMode.Food;
+import com.practice.designPatterns.creationType.factoryMode.Food;
 
 /**
  * @Auther : guojianmin

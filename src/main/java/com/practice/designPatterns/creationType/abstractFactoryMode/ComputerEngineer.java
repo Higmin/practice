@@ -1,4 +1,4 @@
-package com.exercise.designPatterns.creationType.abstractFactoryMode;
+package com.practice.designPatterns.creationType.abstractFactoryMode;
 
 /**
  * @Auther : guojianmin

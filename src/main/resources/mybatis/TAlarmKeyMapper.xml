@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.exercise.reverseEngineering.dao.TAlarmKeyMapper">
-  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TAlarmKey">
+<mapper namespace="com.practice.reverseEngineering.dao.TAlarmKeyMapper">
+  <resultMap id="BaseResultMap" type="com.practice.reverseEngineering.entity.TAlarmKey">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="alarm_key" jdbcType="VARCHAR" property="alarmKey" />
@@ -12,7 +12,7 @@
     delete from t_alarm_key
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TAlarmKey">
+  <insert id="insert" parameterType="com.practice.reverseEngineering.entity.TAlarmKey">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -21,7 +21,7 @@
     values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{alarmKey,jdbcType=VARCHAR}, 
       #{alarmValue,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TAlarmKey">
+  <update id="updateByPrimaryKey" parameterType="com.practice.reverseEngineering.entity.TAlarmKey">
     update t_alarm_key
     set type = #{type,jdbcType=VARCHAR},
       alarm_key = #{alarmKey,jdbcType=VARCHAR},
@@ -38,7 +38,7 @@
     select id, type, alarm_key, alarm_value, remark
     from t_alarm_key
   </select>
-  <resultMap id="BaseResultMap" type="com.exercise.reverseEngineering.entity.TAlarmKey">
+  <resultMap id="BaseResultMap" type="com.practice.reverseEngineering.entity.TAlarmKey">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="alarm_key" jdbcType="VARCHAR" property="alarmKey" />
@@ -49,7 +49,7 @@
     delete from t_alarm_key
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.exercise.reverseEngineering.entity.TAlarmKey">
+  <insert id="insert" parameterType="com.practice.reverseEngineering.entity.TAlarmKey">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -58,7 +58,7 @@
     values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{alarmKey,jdbcType=VARCHAR}, 
       #{alarmValue,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.exercise.reverseEngineering.entity.TAlarmKey">
+  <update id="updateByPrimaryKey" parameterType="com.practice.reverseEngineering.entity.TAlarmKey">
     update t_alarm_key
     set type = #{type,jdbcType=VARCHAR},
       alarm_key = #{alarmKey,jdbcType=VARCHAR},

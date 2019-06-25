@@ -1,9 +1,9 @@
-package com.exercise.designPatterns.creationType.factoryMode.factory;
+package com.practice.designPatterns.creationType.factoryMode.factory;
 
-import com.exercise.designPatterns.creationType.factoryMode.Food;
-import com.exercise.designPatterns.creationType.factoryMode.FoodFactory;
-import com.exercise.designPatterns.creationType.factoryMode.chineseFood.Chicken;
-import com.exercise.designPatterns.creationType.factoryMode.chineseFood.Noodle;
+import com.practice.designPatterns.creationType.factoryMode.Food;
+import com.practice.designPatterns.creationType.factoryMode.FoodFactory;
+import com.practice.designPatterns.creationType.factoryMode.chineseFood.Chicken;
+import com.practice.designPatterns.creationType.factoryMode.chineseFood.Noodle;
 
 /**
  * @Auther : guojianmin

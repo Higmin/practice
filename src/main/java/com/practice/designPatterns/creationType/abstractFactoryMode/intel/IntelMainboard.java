@@ -1,6 +1,6 @@
-package com.exercise.designPatterns.creationType.abstractFactoryMode.intel;
+package com.practice.designPatterns.creationType.abstractFactoryMode.intel;
 
-import com.exercise.designPatterns.creationType.abstractFactoryMode.Mainboard;
+import com.practice.designPatterns.creationType.abstractFactoryMode.Mainboard;
 
 /**
  * @Auther : guojianmin

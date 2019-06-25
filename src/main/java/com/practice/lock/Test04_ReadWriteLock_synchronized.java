@@ -1,4 +1,4 @@
-package com.exercise.lock;
+package com.practice.lock;
 
 /**
  * @Auther : guojianmin

@@ -1,7 +1,7 @@
-package com.exercise.designPatterns.creationType.abstractFactoryMode;
+package com.practice.designPatterns.creationType.abstractFactoryMode;
 
-import com.exercise.designPatterns.creationType.abstractFactoryMode.factory.AmdFactory;
-import com.exercise.designPatterns.creationType.abstractFactoryMode.factory.IntelFactory;
+import com.practice.designPatterns.creationType.abstractFactoryMode.factory.AmdFactory;
+import com.practice.designPatterns.creationType.abstractFactoryMode.factory.IntelFactory;
 
 /**
  * @Auther : guojianmin

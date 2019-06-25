@@ -1,4 +1,4 @@
-package com.exercise.reverseEngineering.entity;
+package com.practice.reverseEngineering.entity;
 
 import java.util.Date;
 

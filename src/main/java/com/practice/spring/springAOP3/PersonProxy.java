@@ -1,6 +1,6 @@
-package com.exercise.spring.springAOP3;
+package com.practice.spring.springAOP3;
 
-import com.exercise.spring.Person;
+import com.practice.spring.Person;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

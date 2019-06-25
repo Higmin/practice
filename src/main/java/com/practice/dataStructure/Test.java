@@ -1,4 +1,4 @@
-package com.exercise.dataStructure;
+package com.practice.dataStructure;
 
 import java.util.*;
 

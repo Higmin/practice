@@ -1,7 +1,5 @@
 package com.practice.io.bio.server;
 
-import com.practice.io.bio.server.ServerHandler;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

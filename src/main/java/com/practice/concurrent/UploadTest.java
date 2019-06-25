@@ -1,4 +1,4 @@
-package com.exercise.concurrent;
+package com.practice.concurrent;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

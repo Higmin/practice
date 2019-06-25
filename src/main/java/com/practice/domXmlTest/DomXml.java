@@ -1,4 +1,4 @@
-package com.exercise.domXmlTest;
+package com.practice.domXmlTest;
 
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;

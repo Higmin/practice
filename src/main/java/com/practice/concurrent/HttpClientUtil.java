@@ -1,4 +1,4 @@
-package com.exercise.concurrent;
+package com.practice.concurrent;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;

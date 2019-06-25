@@ -1,4 +1,4 @@
-package com.exercise.designPatterns.creationType.factoryMode;
+package com.practice.designPatterns.creationType.factoryMode;
 
 public interface Food {
 

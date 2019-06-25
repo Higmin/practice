@@ -1,4 +1,4 @@
-package com.exercise.reverseEngineering;
+package com.practice.reverseEngineering;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;

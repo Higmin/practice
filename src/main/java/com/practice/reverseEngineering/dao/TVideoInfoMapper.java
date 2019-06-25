@@ -1,6 +1,6 @@
-package com.exercise.reverseEngineering.dao;
+package com.practice.reverseEngineering.dao;
 
-import com.exercise.reverseEngineering.entity.TVideoInfo;
+import com.practice.reverseEngineering.entity.TVideoInfo;
 import java.util.List;
 
 public interface TVideoInfoMapper {

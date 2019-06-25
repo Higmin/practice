@@ -1,4 +1,4 @@
-package com.exercise.spring;
+package com.practice.spring;
 
 /**
  * @Auther : guojianmin

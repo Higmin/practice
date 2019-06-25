@@ -1,4 +1,4 @@
-package com.exercise.designPatterns.creationType.singletonMode;
+package com.practice.designPatterns.creationType.singletonMode;
 
 /**
  * @Auther : guojianmin

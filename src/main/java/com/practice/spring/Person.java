@@ -1,4 +1,4 @@
-package com.exercise.spring;
+package com.practice.spring;
 
 /**
  * @Auther : guojianmin
@@ -8,6 +8,6 @@ package com.exercise.spring;
 public class Person implements IPerson {
     @Override
     public void doSomething(String work) {
-        System.out.println("I want to do something! exercise：" + work);
+        System.out.println("I want to do something! practice：" + work);
     }
 }

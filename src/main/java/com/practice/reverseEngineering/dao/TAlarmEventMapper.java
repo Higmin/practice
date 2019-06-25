@@ -1,6 +1,6 @@
-package com.exercise.reverseEngineering.dao;
+package com.practice.reverseEngineering.dao;
 
-import com.exercise.reverseEngineering.entity.TAlarmEvent;
+import com.practice.reverseEngineering.entity.TAlarmEvent;
 import java.util.List;
 
 public interface TAlarmEventMapper {

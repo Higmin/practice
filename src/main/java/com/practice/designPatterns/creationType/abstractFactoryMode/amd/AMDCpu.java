@@ -1,6 +1,6 @@
-package com.exercise.designPatterns.creationType.abstractFactoryMode.amd;
+package com.practice.designPatterns.creationType.abstractFactoryMode.amd;
 
-import com.exercise.designPatterns.creationType.abstractFactoryMode.Cpu;
+import com.practice.designPatterns.creationType.abstractFactoryMode.Cpu;
 
 /**
  * @Auther : guojianmin

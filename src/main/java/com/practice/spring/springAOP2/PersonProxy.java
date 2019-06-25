@@ -1,7 +1,7 @@
-package com.exercise.spring.springAOP2;
+package com.practice.spring.springAOP2;
 
-import com.exercise.spring.IPerson;
-import com.exercise.spring.Person;
+import com.practice.spring.IPerson;
+import com.practice.spring.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

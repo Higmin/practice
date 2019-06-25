@@ -1,4 +1,4 @@
-package com.exercise.reverseEngineering;
+package com.practice.reverseEngineering;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

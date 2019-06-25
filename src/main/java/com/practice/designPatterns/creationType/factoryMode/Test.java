@@ -1,7 +1,7 @@
-package com.exercise.designPatterns.creationType.factoryMode;
+package com.practice.designPatterns.creationType.factoryMode;
 
-import com.exercise.designPatterns.creationType.factoryMode.factory.AmericanFoodFactory;
-import com.exercise.designPatterns.creationType.factoryMode.factory.ChineseFoodFactory;
+import com.practice.designPatterns.creationType.factoryMode.factory.AmericanFoodFactory;
+import com.practice.designPatterns.creationType.factoryMode.factory.ChineseFoodFactory;
 
 /**
  * @Auther : guojianmin

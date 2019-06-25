@@ -1,10 +1,10 @@
-package com.exercise.designPatterns.creationType.abstractFactoryMode.factory;
+package com.practice.designPatterns.creationType.abstractFactoryMode.factory;
 
-import com.exercise.designPatterns.creationType.abstractFactoryMode.ComputerFactory;
-import com.exercise.designPatterns.creationType.abstractFactoryMode.Cpu;
-import com.exercise.designPatterns.creationType.abstractFactoryMode.Mainboard;
-import com.exercise.designPatterns.creationType.abstractFactoryMode.intel.IntelCpu;
-import com.exercise.designPatterns.creationType.abstractFactoryMode.intel.IntelMainboard;
+import com.practice.designPatterns.creationType.abstractFactoryMode.ComputerFactory;
+import com.practice.designPatterns.creationType.abstractFactoryMode.Cpu;
+import com.practice.designPatterns.creationType.abstractFactoryMode.Mainboard;
+import com.practice.designPatterns.creationType.abstractFactoryMode.intel.IntelCpu;
+import com.practice.designPatterns.creationType.abstractFactoryMode.intel.IntelMainboard;
 
 /**
  * @Auther : guojianmin

@@ -1,4 +1,4 @@
-package com.exercise.reverseEngineering.controller;
+package com.practice.reverseEngineering.controller;
 
 /**
  * @Auther : guojianmin
