@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Auther : guojianmin
  * @Date : 2019/6/27 15:40
- * @Description : 适配器模式：类适配器（默认适配器）
+ * @Description : 适配器模式：类适配器（默认适配器）。
  *
  * 需求:
  * 我们用 Appache commons-io 包中的 FileAlterationListener 做例子，此接口定义了很多的方法，用于对文件或文件夹进行监控，一旦发生了对应的操作，就会触发相应的方法。
