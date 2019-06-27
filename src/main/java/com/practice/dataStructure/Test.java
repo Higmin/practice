@@ -5,9 +5,10 @@ import java.util.*;
 /**
  * @Auther : guojianmin
  * @Date : 2019/6/20 15:58
- * @Description : 观察者模式
+ * @Description :
  */
 public class Test {
+
     public void test(){
         List<String> arrayList = new ArrayList<>();
         List<String> linkedList = new LinkedList<>();
