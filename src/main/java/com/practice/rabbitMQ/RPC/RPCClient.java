@@ -13,7 +13,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * @Auther : guojianmin
  * @Date : 2019/7/1 14:59
- * @Description : TODO用一句话描述此类的作用
+ * @Description : 生产者
  */
 public class RPCClient implements AutoCloseable {
 

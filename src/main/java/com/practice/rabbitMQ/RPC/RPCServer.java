@@ -5,7 +5,7 @@ import com.rabbitmq.client.*;
 /**
  * @Auther : guojianmin
  * @Date : 2019/7/1 14:54
- * @Description : TODO用一句话描述此类的作用
+ * @Description : 消费者
  */
 public class RPCServer {
 

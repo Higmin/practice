@@ -93,6 +93,20 @@
             <version>5.2.0</version>
         </dependency>
 
+        <!--springboot 整合 rabbitmq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>1.5.2.RELEASE</version>
+        </dependency>
+
+        <!--引入swagger2的依赖关系-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
