@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 /**
  * @Auther : guojianmin
  * @Date : 2019/7/2 10:14
- * @Description :
+ * @Description : RabbitMQController
  */
 @RestController
 public class RabbitMQController {
