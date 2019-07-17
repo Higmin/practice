@@ -24,5 +24,8 @@ public class Test02 {
         System.out.println("======= Lambda 写法 =========");
         // Lambda 写法:
         list.forEach((e) -> System.out.println(e));
+        list.forEach((e) -> System.out.println(e));
+        // Java 8  :: 的写法
+        list.forEach(System.out::println);
     }
 }

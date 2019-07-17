@@ -18,6 +18,7 @@ public class Test03 {
         //下面是流查询list集合中等于 "a"的数量。
         List<String> list = Arrays.asList("a","b","c");
         long count = list.stream().filter((e) -> "a".equals(e)).count();
+        // Java 8  :: 的写法
         long count01 = list.stream().filter("a"::equals).count();
         System.out.println(count);
         System.out.println(count01);
