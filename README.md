@@ -12,7 +12,7 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
 以动态代理来说,测试动态代理加强类时，创建main方法直接测试即可：  
 
 ```markdown
-/**
+     /**
      * 测试
      * @param args
      */
@@ -68,6 +68,34 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 本工程中以 SpringBoot 项目 为示例，写了具体实现，以供参考。  
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/xssFilter  
+
+### 6. MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
+什么是MyBatis Generator ?  
+MyBatis Generator是一个可以用来生成Mybatis dao,entity,Mapper文件的一个工具,在项目的过程中可以省去很多重复的工作,我们只要在MyBatis Generator的配置文件中配置好要生成的表名与包名，然后运行一条命令就会生成一堆文件。 
+
+使用方法是：  
+1.导入依赖包（推荐在maven仓库查询使用最新依赖包）  
+2.编写配置文件（可以直接使用此工程里的generatorConfig.xml 和 jdbc.properties，注意修改jdbc.properties中的数据库连接信息和生成mapper、实体的位置）  
+3.编写运行方法，如下  
+
+```
+public class MGB {
+
+    public static void main(String[] args) throws Exception {
+        List<String> warnings = new ArrayList<String>();
+        boolean overwrite = true;
+        //指向逆向工程配置文件，只需要把下面这个文件改为你自己写的配置文件即可
+        File configFile = new File("C:\\CMS\\CMS\\generator\\src\\main\\" +
+                "resources\\generatorConfig.xml");
+        ConfigurationParser cp = new ConfigurationParser(warnings);
+        Configuration config = cp.parseConfiguration(configFile);
+        DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+        MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+        myBatisGenerator.generate(null);
+    }
+}
+
+```
 
 未完待续...  
 
