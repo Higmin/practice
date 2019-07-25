@@ -43,9 +43,24 @@ Lock接口比同步方法和同步块（这里的同步就是考察Synchronized�
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/lock
 这里只是基础部分的示例，关于更全面的锁机制介绍，包括对公平锁，非公平锁，乐观锁，悲观锁，和分布式锁等的介绍或者导读，推荐一篇文章写的挺全面的，感兴趣的小伙伴可以去观摩一番：https://www.cnblogs.com/tison/p/8283233.html
 
-### 4. Lambda表达式
+### 4. ThreadLocal使用
 
-4.1 什么是Lambda表达式:  
+ThreadLocal的官方API解释为:  
+“该类提供了线程局部 (thread-local) 变量。这些变量不同于它们的普通对应物，因为访问某个变量（通过其 get 或 set 方法）的每个线程都有自己的局部变量，它独立于变量的初始化副本。ThreadLocal 实例通常是类中的 private static 字段，它们希望将状态与某一个线程（例如，用户 ID 或事务 ID）相关联。”  
+
+大概的意思有两点：  
+a. ThreadLocal提供了一种访问某个变量的特殊方式：访问到的变量属于当前线程，即保证每个线程的变量不一样，而同一个线程在任何地方拿到的变量都是一致的，这就是所谓的线程隔离。  
+b. 如果要使用ThreadLocal，通常定义为private static类型，在我看来最好是定义为private static final类型。  
+
+应用场景:  
+ThreadLocal通常用来共享数据，当你想在多个方法中使用某个变量，这个变量是当前线程的状态，其它线程不依赖这个变量，你第一时间想到的就是把变量定义在方法内部，然后再方法之间传递参数来使用，这个方法能解决问题，但是有个烦人的地方就是，每个方法都需要声明形参，多处声明，多处调用。影响代码的美观和维护。有没有一种方法能将变量像private static形式来访问呢？这样在类的任何一处地方就都能使用。这个时候ThreadLocal大显身手了。  
+
+详情移步：
+https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadLocal  
+
+### 5. Lambda表达式
+
+#### 5.1 什么是Lambda表达式:  
 Java 8 的一个大亮点是引入Lambda表达式，使用它设计的代码会更加简洁。  
 当开发者在编写Lambda表达式时，也会随之被编译成一个函数式接口。  
 -> 是Java 8新增的Lambda表达式中，变量和临时代码块的分隔符，即：  
@@ -56,14 +71,14 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 本工程中着重Lambda表达式使用。  
 
 了解了Lambda表达式的使用，我们再来看看函数式接口：ava 8增加了两个新的概念在接口声明的时候： 默认方法和静态方法。  
-4.2 默认方法允许我们在接口里添加新的方法，而不会破坏实现这个接口的已有类的兼容性，也就是说不会强迫实现接口的类实现默认方法。接口可以提供一个默认的方法实现，所有这个接口的实现类都会通过继承得倒这个方法（如果有需要也可以重写这个方法）  
-4.3 接口里可以声明静态方法，并且可以在接口中实现。  
-4.4 方法引用：方法引用提供了一个很有用的语义来直接访问类或者实例的已经存在的方法或者构造方法， 结合Lambda表达式，方法引用使语法结构紧凑简明。不需要复杂的引用。  
+#### 5.2 默认方法允许我们在接口里添加新的方法，而不会破坏实现这个接口的已有类的兼容性，也就是说不会强迫实现接口的类实现默认方法。接口可以提供一个默认的方法实现，所有这个接口的实现类都会通过继承得倒这个方法（如果有需要也可以重写这个方法）  
+#### 5.3 接口里可以声明静态方法，并且可以在接口中实现。  
+#### 5.4 方法引用：方法引用提供了一个很有用的语义来直接访问类或者实例的已经存在的方法或者构造方法， 结合Lambda表达式，方法引用使语法结构紧凑简明。不需要复杂的引用。  
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/Lambda  
 关于 java 8 更多新特性，可以在这里了解更多：http://ifeve.com/java-8-features-tutorial  
 
-### 5. 设计模式（未完待续...）
+### 6. 设计模式（未完待续...）
 
 使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。大致可以分为三类：创建型，结构型，和功能型。  
 工程中的具体代码示例情况如下：  
@@ -75,18 +90,18 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/designPatterns  
 
-### 6. 防止XSS漏洞攻击解决办法
+### 7. 防止XSS漏洞攻击解决办法
 
-1.创建包装request的类 XssHttpServletRequestWrapper  
-2.自定义过滤器过滤器拦截请求（创建过滤器）  
-3.添加过滤器  
+第1步：创建包装request的类 XssHttpServletRequestWrapper  
+第2步：自定义过滤器过滤器拦截请求（创建过滤器）  
+第3步：添加过滤器  
 这里需要注意一点的是@WebFilter这个注解是Servlet3.0的规范，并不是Spring boot提供的。除了这个注解以外，我们还需在配置类中加另外一个注解：@ServletComponetScan，指定扫描的包。  
 
 本工程中以 SpringBoot 项目 为示例，写了具体实现，以供参考。
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/xssFilter  
 
-### 7. MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
+### 8. MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
 什么是MyBatis Generator ?  
 MyBatis Generator是一个可以用来生成Mybatis dao,entity,Mapper文件的一个工具,在项目的过程中可以省去很多重复的工作,我们只要在MyBatis Generator的配置文件中配置好要生成的表名与包名，然后运行一条命令就会生成一堆文件。 
 
