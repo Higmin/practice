@@ -1,9 +1,9 @@
-package com.practice.Lambda.defaultMethodAndStaticMethod;
+package com.practice.java8.Lambda.defaultMethodAndStaticMethod;
 
-import com.practice.Lambda.defaultMethodAndStaticMethod.defaultMethod.Defaulable;
-import com.practice.Lambda.defaultMethodAndStaticMethod.defaultMethod.DefaultableImpl;
-import com.practice.Lambda.defaultMethodAndStaticMethod.defaultMethod.OverridableImpl;
-import com.practice.Lambda.defaultMethodAndStaticMethod.staticMethod.MethodFactory;
+import com.practice.java8.Lambda.defaultMethodAndStaticMethod.defaultMethod.Defaulable;
+import com.practice.java8.Lambda.defaultMethodAndStaticMethod.defaultMethod.DefaultableImpl;
+import com.practice.java8.Lambda.defaultMethodAndStaticMethod.defaultMethod.OverridableImpl;
+import com.practice.java8.Lambda.defaultMethodAndStaticMethod.staticMethod.MethodFactory;
 
 /**
  * @author Higmin

@@ -1,4 +1,4 @@
-package com.practice.Lambda.defaultMethodAndStaticMethod.defaultMethod;
+package com.practice.java8.Lambda.defaultMethodAndStaticMethod.defaultMethod;
 
 /**
  * @author Higmin

@@ -75,8 +75,17 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 #### 5.3 接口里可以声明静态方法，并且可以在接口中实现。  
 #### 5.4 方法引用：方法引用提供了一个很有用的语义来直接访问类或者实例的已经存在的方法或者构造方法， 结合Lambda表达式，方法引用使语法结构紧凑简明。不需要复杂的引用。  
 
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/Lambda  
-关于 java 8 更多新特性，可以在这里了解更多：http://ifeve.com/java-8-features-tutorial  
+详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/java8/Lambda  
+
+#### 5.5 在这里顺便整理一下 jdk 1.8 中的日期时间API：  
+介绍一下两个概念：绝对时间和时区  
+5.5.1.绝对时间： 是指从1970年01月01日00时00分00秒 到此刻的时间，全世界都一样。  
+注意：1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)  
+5.5.2.时区 是符合人们习惯的一种辅助计时方法，按照经线从东到西将绝对时间做了重新划分以方便全球不同经度的地区计时，现今全球共分为24个时区，并且规定相邻区域的时间相差1小时  
+本工程中举例了 Clock 、Instant、LocalDateTime、和 DateTimeFormatter 的用法。  
+详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/java8/date
+
+关于 jdk 1.8 更多新特性，可以在这里了解更多：http://ifeve.com/java-8-features-tutorial  
 
 ### 6. 设计模式（未完待续...）
 

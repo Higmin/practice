@@ -1,4 +1,4 @@
-package com.practice.Lambda.methodReference;
+package com.practice.java8.Lambda.methodReference;
 
 import java.util.Arrays;
 import java.util.List;

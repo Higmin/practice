@@ -1,6 +1,6 @@
-package com.practice.Lambda.defaultMethodAndStaticMethod.staticMethod;
+package com.practice.java8.Lambda.defaultMethodAndStaticMethod.staticMethod;
 
-import com.practice.Lambda.defaultMethodAndStaticMethod.defaultMethod.Defaulable;
+import com.practice.java8.Lambda.defaultMethodAndStaticMethod.defaultMethod.Defaulable;
 
 import java.util.function.Supplier;
 

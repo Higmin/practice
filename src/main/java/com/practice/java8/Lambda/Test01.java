@@ -1,4 +1,4 @@
-package com.practice.Lambda;
+package com.practice.java8.Lambda;
 
 /**
  * @author Higmin
