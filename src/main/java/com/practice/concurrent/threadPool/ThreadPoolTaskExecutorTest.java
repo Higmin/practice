@@ -66,13 +66,13 @@ public class ThreadPoolTaskExecutorTest {
     // todo 温馨提示：这里注入需要依赖于 Spring 容器，所以此测试类不能直接运行，只是将写法列在这里以供参考,具体用法这里也列了一种，感兴趣大家可以再研究
 
     @Autowired
-    private static ThreadPoolTaskExecutor threadPoolTaskExecutorTest;
+    private static ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     public static void main(String[] args) {
 
         // // 这里是java 8 的 lambda 表达式
-        // threadPoolTaskExecutorTest.execute(() -> {}) 等价于 threadPoolTaskExecutorTest.execute(new Runnable() {})
-        threadPoolTaskExecutorTest.execute(() -> {
+        // threadPoolTaskExecutor.execute(() -> {}) 等价于 threadPoolTaskExecutor.execute(new Runnable() {})
+        threadPoolTaskExecutor.execute(() -> {
             System.out.println("在这里进行任务的执行");
             // 模拟任务执行需要 2s
             try {
