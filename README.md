@@ -36,14 +36,30 @@ AIO:异步非阻塞I/O模型
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/io
 
-### 3. Java 锁机制之Lock
+
+
+### 3. Java 并发编程之 volatile 关键字
+
+volatile关键字包含两层语义:  
+3.1 保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。（保证可见性）  
+3.2 禁止进行指令重排序。（保证有序性）  
+划个重点：volatile 关键字能保证可见性和有序性，但是不能保证操作的原子性。  
+可见性只能保证每次读取的是最新的值，但是volatile没办法保证对变量的操作的原子性。  
+本工程中的代码示例有：
+a.volatile 不保证原子性  
+b.使用synchronized关键字,Lock,AtomicInteger来解决原子性的操作的问题  
+具体的详解可以在这里查看：https://blog.csdn.net/weixin_38497019/article/details/99430092  
+
+代码源码移步至：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/keyWord_volatile  
+
+### 4. Java 锁机制之Lock
 Lock接口比同步方法和同步块（这里的同步就是考察Synchronized关键字）提供了更具扩展性的锁操作。Lock不是Java语言内置的，synchronized是Java语言的关键字，因此是内置特性，Lock是一个类，通过这个类可以实现同步访问；他们允许更灵活的结构，可以具有完全不同的性质，并且可以支持多个相关类的条件对象。它的优势有：可以使锁更公平；可以使线程在等待锁的时候响应中断；可以让线程尝试获取锁，并在无法获取锁的时候立即返回或者等待一段时间；可以在不同的范围，以不同的顺序获取和释放锁  
 本工程中是从死锁、如何避免死锁、同步锁、读-写同步锁方面来介绍。  
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/lock
 这里只是基础部分的示例，关于更全面的锁机制介绍，包括对公平锁，非公平锁，乐观锁，悲观锁，和分布式锁等的介绍或者导读，推荐一篇文章写的挺全面的，感兴趣的小伙伴可以去观摩一番：https://www.cnblogs.com/tison/p/8283233.html
 
-### 4. ThreadLocal使用
+### 5. ThreadLocal使用
 
 ThreadLocal的官方API解释为:  
 “该类提供了线程局部 (thread-local) 变量。这些变量不同于它们的普通对应物，因为访问某个变量（通过其 get 或 set 方法）的每个线程都有自己的局部变量，它独立于变量的初始化副本。ThreadLocal 实例通常是类中的 private static 字段，它们希望将状态与某一个线程（例如，用户 ID 或事务 ID）相关联。”  
@@ -58,22 +74,20 @@ ThreadLocal通常用来共享数据，当你想在多个方法中使用某个变
 详情移步：
 https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadLocal  
 
-### 5. 线程池
-在Java中，我们一般通过集成Thread类和实现Runnnable接口，调用线程的start()方法实现线程的启动。但如果并发的数量很多，而且每个线程都是执行很短的时间便结束了，那样频繁的创建线程和销毁进程会大大的降低系统运行的效率。线程池正是为了解决多线程效率低的问题而产生的，他使得线程可以被复用，就是线程执行结束后不被销毁，而是可以继续执行其他任务。（这里可以用tomcat做例子进行思考） 
-
+### 6. 线程池
+在Java中，我们一般通过集成Thread类和实现Runnnable接口，调用线程的start()方法实现线程的启动。但如果并发的数量很多，而且每个线程都是执行很短的时间便结束了，那样频繁的创建线程和销毁进程会大大的降低系统运行的效率。线程池正是为了解决多线程效率低的问题而产生的，他使得线程可以被复用，就是线程执行结束后不被销毁，而是可以继续执行其他任务。（这里可以用tomcat做例子进行思考）  
 很多人想问，线程池听起来高大上，但在实际工作中却很少使用。其实不然，在各种流行框架或者高性能的架构中，池化技术是无处不在的。  
 
 本工程中从JUC中ThreadPoolExecutor类的四个应用和Spring的线程池开始介绍：  
 通常我们创建线程池都是通过Executors 工厂方法 Executors.newCachedThreadPool()（无界线程池，可以进行自动线程回收）、Executors.newFixedThreadPool(int)（固定大小线程池）和Executors.newSingleThreadExecutor()（单个后台线程），Executors.newScheduledThreadPool（定时，延时线程池）它们均为大多数使用场景预定义了设置。本工程中对这四种用法进行了简单的示例：  
 详情移步至：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadPool  
-
 但是这样简单的应用在生产中难免不出问题，所以，我们需要介绍一下Spring为我们提供的线程池技术ThreadPoolTaskExecutor  
 其实，它的实现方式完全是使用ThreadPoolExecutor进行实现（有点类似于装饰者模式。当然Spring提供的功能更加强大些，因为还有定时调度功能）。  
 具体的介绍和使用配置在工程示例中已经写的非常非常详细了，详情移步： https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadPool/ThreadPoolTaskExecutorTest.java  
 
-### 6. Lambda表达式
+### 7. Lambda表达式
 
-#### 6.1 什么是Lambda表达式:  
+#### 7.1 什么是Lambda表达式:  
 Java 8 的一个大亮点是引入Lambda表达式，使用它设计的代码会更加简洁。  
 当开发者在编写Lambda表达式时，也会随之被编译成一个函数式接口。  
 -> 是Java 8新增的Lambda表达式中，变量和临时代码块的分隔符，即：  
@@ -84,23 +98,23 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 本工程中着重Lambda表达式使用。  
 
 了解了Lambda表达式的使用，我们再来看看函数式接口：ava 8增加了两个新的概念在接口声明的时候： 默认方法和静态方法。  
-#### 6.2 默认方法允许我们在接口里添加新的方法，而不会破坏实现这个接口的已有类的兼容性，也就是说不会强迫实现接口的类实现默认方法。接口可以提供一个默认的方法实现，所有这个接口的实现类都会通过继承得倒这个方法（如果有需要也可以重写这个方法）  
-#### 6.3 接口里可以声明静态方法，并且可以在接口中实现。  
-#### 6.4 方法引用：方法引用提供了一个很有用的语义来直接访问类或者实例的已经存在的方法或者构造方法， 结合Lambda表达式，方法引用使语法结构紧凑简明。不需要复杂的引用。  
+#### 7.2 默认方法允许我们在接口里添加新的方法，而不会破坏实现这个接口的已有类的兼容性，也就是说不会强迫实现接口的类实现默认方法。接口可以提供一个默认的方法实现，所有这个接口的实现类都会通过继承得倒这个方法（如果有需要也可以重写这个方法）  
+#### 7.3 接口里可以声明静态方法，并且可以在接口中实现。  
+#### 7.4 方法引用：方法引用提供了一个很有用的语义来直接访问类或者实例的已经存在的方法或者构造方法， 结合Lambda表达式，方法引用使语法结构紧凑简明。不需要复杂的引用。  
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/java8/Lambda  
 
-#### 6.5 在这里顺便整理一下 jdk 1.8 中的日期时间API：  
+#### 7.5 在这里顺便整理一下 jdk 1.8 中的日期时间API：  
 介绍一下两个概念：绝对时间和时区  
-6.5.1.绝对时间： 是指从1970年01月01日00时00分00秒 到此刻的时间，全世界都一样。  
+7.5.1.绝对时间： 是指从1970年01月01日00时00分00秒 到此刻的时间，全世界都一样。  
 注意：1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)  
-6.5.2.时区 是符合人们习惯的一种辅助计时方法，按照经线从东到西将绝对时间做了重新划分以方便全球不同经度的地区计时，现今全球共分为24个时区，并且规定相邻区域的时间相差1小时  
+7.5.2.时区 是符合人们习惯的一种辅助计时方法，按照经线从东到西将绝对时间做了重新划分以方便全球不同经度的地区计时，现今全球共分为24个时区，并且规定相邻区域的时间相差1小时  
 本工程中举例了 Clock 、Instant、LocalDateTime、和 DateTimeFormatter 的用法。  
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/java8/date
 
 关于 jdk 1.8 更多新特性，可以在这里了解更多：http://ifeve.com/java-8-features-tutorial  
 
-### 7. 设计模式（未完待续...）
+### 8. 设计模式（未完待续...）
 
 使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。大致可以分为三类：创建型，结构型，和功能型。  
 工程中的具体代码示例情况如下：  
@@ -112,7 +126,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/designPatterns  
 
-### 8. 防止XSS漏洞攻击解决办法
+### 9. 防止XSS漏洞攻击解决办法
 
 第1步：创建包装request的类 XssHttpServletRequestWrapper  
 第2步：自定义过滤器过滤器拦截请求（创建过滤器）  
@@ -123,7 +137,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/xssFilter  
 
-### 9. MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
+### 10. MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
 什么是MyBatis Generator ?  
 MyBatis Generator是一个可以用来生成Mybatis dao,entity,Mapper文件的一个工具,在项目的过程中可以省去很多重复的工作,我们只要在MyBatis Generator的配置文件中配置好要生成的表名与包名，然后运行一条命令就会生成一堆文件。 
 
