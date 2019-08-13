@@ -59,12 +59,14 @@ ThreadLocal通常用来共享数据，当你想在多个方法中使用某个变
 https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadLocal  
 
 ### 5. 线程池
-在Java中，我们一般通过集成Thread类和实现Runnnable接口，调用线程的start()方法实现线程的启动。但如果并发的数量很多，而且每个线程都是执行很短的时间便结束了，那样频繁的创建线程和销毁进程会大大的降低系统运行的效率。线程池正是为了解决多线程效率低的问题而产生的，他使得线程可以被复用，就是线程执行结束后不被销毁，而是可以继续执行其他任务。（这里可以用tomcat做例子进行思考）  
+在Java中，我们一般通过集成Thread类和实现Runnnable接口，调用线程的start()方法实现线程的启动。但如果并发的数量很多，而且每个线程都是执行很短的时间便结束了，那样频繁的创建线程和销毁进程会大大的降低系统运行的效率。线程池正是为了解决多线程效率低的问题而产生的，他使得线程可以被复用，就是线程执行结束后不被销毁，而是可以继续执行其他任务。（这里可以用tomcat做例子进行思考） 
+
 很多人想问，线程池听起来高大上，但在实际工作中却很少使用。其实不然，在各种流行框架或者高性能的架构中，池化技术是无处不在的。  
 
 本工程中从JUC中ThreadPoolExecutor类的四个应用和Spring的线程池开始介绍：  
 通常我们创建线程池都是通过Executors 工厂方法 Executors.newCachedThreadPool()（无界线程池，可以进行自动线程回收）、Executors.newFixedThreadPool(int)（固定大小线程池）和Executors.newSingleThreadExecutor()（单个后台线程），Executors.newScheduledThreadPool（定时，延时线程池）它们均为大多数使用场景预定义了设置。本工程中对这四种用法进行了简单的示例：  
 详情移步至：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadPool  
+
 但是这样简单的应用在生产中难免不出问题，所以，我们需要介绍一下Spring为我们提供的线程池技术ThreadPoolTaskExecutor  
 其实，它的实现方式完全是使用ThreadPoolExecutor进行实现（有点类似于装饰者模式。当然Spring提供的功能更加强大些，因为还有定时调度功能）。  
 具体的介绍和使用配置在工程示例中已经写的非常非常详细了，详情移步： https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadPool/ThreadPoolTaskExecutorTest.java  
