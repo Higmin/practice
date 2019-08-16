@@ -30,10 +30,12 @@ public class DateTest {
         System.out.println("Instant-转换为时间戳: " + instant.toEpochMilli());
 
         // 示例二：LocalDateTime 是指当前时区的时间，所以LocalDateTime要转时间戳，需要先转为绝对时间，再由绝对是件转换为时间戳
-
         System.out.println();
         LocalDateTime now = LocalDateTime.now();
-        System.out.println("LocalDateTime - 当前时区的时间 " + now);
+        System.out.println("LocalDateTime - 当前时区的时间： " + now);
+        System.out.println("LocalDateTime - 当前时区的时间的年月日： " + now.toLocalDate());
+        System.out.println("LocalDateTime - 当前时区的时间的时分秒.毫秒： " + now.toLocalTime());
+        System.out.println("LocalDateTime - 当前时区的时间的年： " + now.getYear() + "  #获取 月，日，时，分，秒，是同样类型的操作，而且提供了各种类型的方法");
         System.out.println("LocalDateTime - 指定时区: " + now.atZone(ZoneId.systemDefault()));
         System.out.println("LocalDateTime - 转换为绝对时间: " + now.atZone(ZoneId.systemDefault()).toInstant());
         System.out.println("LocalDateTime - 时间戳: " + now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
