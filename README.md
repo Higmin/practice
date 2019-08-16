@@ -109,7 +109,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 7.5.1.绝对时间： 是指从1970年01月01日00时00分00秒 到此刻的时间，全世界都一样。  
 注意：1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)  
 7.5.2.时区 是符合人们习惯的一种辅助计时方法，按照经线从东到西将绝对时间做了重新划分以方便全球不同经度的地区计时，现今全球共分为24个时区，并且规定相邻区域的时间相差1小时  
-本工程中举例了 Clock 、Instant、LocalDateTime、和 DateTimeFormatter 的用法。  
+本工程中举例了 Clock 、Instant、LocalDateTime、和 DateTimeFormatter 的用法。以及一些常用的工具类（Date转LocalDateTime，LocalDateTime转Date，LocalDateTime转指定格式（例如：yyyy-MM-dd HH:mm:ss ）的String类型）  
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/java8/date
 
 关于 jdk 1.8 更多新特性，可以在这里了解更多：http://ifeve.com/java-8-features-tutorial  

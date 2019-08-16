@@ -1,10 +1,8 @@
 package com.practice.java8.date;
 
-import java.time.Clock;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * @author Higmin
@@ -21,12 +19,12 @@ public class DateTest {
     public static void main(String[] args) {
         // 首先介绍一下两个概念：绝对时间和时区
 
-        // 1.绝对时间： 是指从1970年01月01日00时00分00秒 到此刻的时间，全世界都一样。
-        // 1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)
+        // 1.绝对时间： 是指从格林威治时间1970年01月01日00时00分00秒 到此刻的时间，全世界都一样。
+        // 格林威治时间1970年01月01日00时00分00秒(也就是 北京时间1970年01月01日08时00分00秒)
 
         // 2.时区 是符合人们习惯的一种辅助计时方法，按照经线从东到西将绝对时间做了重新划分以方便全球不同经度的地区计时，现今全球共分为24个时区，并且规定相邻区域的时间相差1小时，
 
-        // 示例一：Instant 就是绝对时间    时间戳 就是绝对时间的总秒(或毫秒)数
+        // 示例一：Instant 就是绝对时间    时间戳 就是绝对时间的总秒数
         Instant instant = Instant.now();
         System.out.println("Instant-绝对时间: " + instant);
         System.out.println("Instant-转换为时间戳: " + instant.toEpochMilli());
@@ -53,5 +51,55 @@ public class DateTest {
         Clock clock = Clock.systemUTC();
         System.out.println("Clock：" + clock.instant());
         System.out.println("Clock - 时间戳：" + clock.millis());
+
+
+        System.out.println();
+        System.out.println("----------------以下为一些常用转换工具的示例------------------");
+        Date date1 = new Date();
+        LocalDateTime localDateTime1 = date2LocalDateTime(date1);
+        System.out.println("示例 1 ：Date转换为LocalDateTime : " + "  Date格式：(" + date1 +")  LocalDateTime格式: (" + localDateTime1 + ")");
+
+        LocalDateTime now2 = LocalDateTime.now();
+        Date date2 = localDateTime2Date(now2);
+        System.out.println("示例 2 ：LocalDateTime转换为Date : " + "  LocalDateTime格式: (" + now2 + ")  Date格式：(" + date2 + ")");
+
+        LocalDateTime now3 = LocalDateTime.now();
+        String str3 = localDateTime2Str(now3);
+        System.out.println("示例 3 ：LocalDateTime转换为 yyyy-MM-dd HH:mm:ss 格式的 String类型 : " + "  LocalDateTime格式: (" + now3  + ")  String格式：(" + str3 + ")");
+    }
+
+//---------------------------------------------以下为一些常用转换工具-----------------------------------------------------
+
+    /**
+     * Date转换为LocalDateTime
+     * @param date
+     */
+    public static LocalDateTime date2LocalDateTime(Date date){
+        Instant instant = date.toInstant(); // An instantaneous point on the time-line.(时间线上的一个瞬时点。)
+        ZoneId zoneId = ZoneId.systemDefault(); // A time-zone ID, such as {@code Europe/Paris}.(时区)
+        LocalDateTime localDateTime = instant.atZone(zoneId).toLocalDateTime();
+        return localDateTime;
+    }
+
+    /**
+     * LocalDateTime转换为Date
+     * @param localDateTime
+     */
+    public static Date localDateTime2Date( LocalDateTime localDateTime){
+        ZoneId zoneId = ZoneId.systemDefault();
+        ZonedDateTime zdt = localDateTime.atZone(zoneId); // Combines this date-time with a time-zone to create a  ZonedDateTime.
+        Date date = Date.from(zdt.toInstant());
+        return date;
+    }
+
+    /**
+     * LocalDateTime转换为 yyyy-MM-dd HH:mm:ss 格式的 String类型
+     * @param localDateTime
+     * @return
+     */
+    public static String localDateTime2Str(LocalDateTime localDateTime){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // This class is immutable and thread-safe.@since 1.8
+        String formatStr = dateTimeFormatter.format(localDateTime);
+        return formatStr;
     }
 }
