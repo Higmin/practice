@@ -24,7 +24,7 @@ public class DateTest {
 
         // 2.时区 是符合人们习惯的一种辅助计时方法，按照经线从东到西将绝对时间做了重新划分以方便全球不同经度的地区计时，现今全球共分为24个时区，并且规定相邻区域的时间相差1小时，
 
-        // 示例一：Instant 就是绝对时间    时间戳 就是绝对时间的总秒数
+        // 示例一：Instant 就是绝对时间    时间戳 就是绝对时间的总毫秒数（13位）
         Instant instant = Instant.now();
         System.out.println("Instant-绝对时间: " + instant);
         System.out.println("Instant-转换为时间戳: " + instant.toEpochMilli());
