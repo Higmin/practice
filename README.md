@@ -54,7 +54,9 @@ b.使用synchronized关键字,Lock,AtomicInteger来解决原子性的操作的�
 
 ### 4. Java 锁机制之Lock
 Lock接口比同步方法和同步块（这里的同步就是考察Synchronized关键字）提供了更具扩展性的锁操作。Lock不是Java语言内置的，synchronized是Java语言的关键字，因此是内置特性，Lock是一个类，通过这个类可以实现同步访问；他们允许更灵活的结构，可以具有完全不同的性质，并且可以支持多个相关类的条件对象。它的优势有：可以使锁更公平；可以使线程在等待锁的时候响应中断；可以让线程尝试获取锁，并在无法获取锁的时候立即返回或者等待一段时间；可以在不同的范围，以不同的顺序获取和释放锁  
-本工程中是从死锁、如何避免死锁、同步锁、读-写同步锁方面来介绍。  
+本工程中是从死锁、如何避免死锁、同步锁、读-写同步锁方面来介绍。
+
+新增了 趣味练习：synchronized + 线程的挂起与唤醒，猜猜看输出什么？ https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/lock/Test09_practice.java 
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/lock
 这里只是基础部分的示例，关于更全面的锁机制介绍，包括对公平锁，非公平锁，乐观锁，悲观锁，和分布式锁等的介绍或者导读，推荐一篇文章写的挺全面的，感兴趣的小伙伴可以去观摩一番：https://www.cnblogs.com/tison/p/8283233.html
