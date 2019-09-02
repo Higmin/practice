@@ -2,7 +2,7 @@
 
 创建此工程是为了巩固基础知识 当然能对社区做点贡献也是我小小的心愿~  
 
-本工程包含了 SpringAOP，死锁，同步锁，读 - 写同步锁，ThreadLocal使用,JUC线程池和Spring提供的线程池,jdk 1.8 中的日期时间API,数据结构（待完善），生成XML文件工具类，防止XSS漏洞攻击解决办法,mybatis逆向工程，接口并发测试，BIO，NIO， AIO，Netty的服务，客户端... 并且在不断更新中,有不足之处请留言指出。  
+本工程包含了 SpringAOP，死锁，JUC同步锁，读-写同步锁，ThreadLocal使用,JUC线程池和Spring提供的线程池,jdk 1.8 中的日期时间API,数据结构（待完善），生成XML文件工具类，防止XSS漏洞攻击解决办法,mybatis逆向工程，接口并发测试，BIO，NIO， AIO，Netty的服务，客户端... 并且在不断更新中,有不足之处请留言指出。  
 
 ### 1. SpringAOP  
 
@@ -35,8 +35,6 @@ NIO:同时支持阻塞与非阻塞模式，但这里我们以其同步非阻塞I
 AIO:异步非阻塞I/O模型   
 
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/io
-
-
 
 ### 3. Java 并发编程之 volatile 关键字
 
@@ -167,6 +165,11 @@ public class MGB {
 
 ```
 详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/reverseEngineering  
+
+### 11. 警惕jvm自动拆装箱带来的性能损耗
+警惕jvm自动拆装箱带来的性能损耗   能用值类型解决问题的情况下 坚决不适用  引用类型
+本例中通过一个 count += i; 操作来输出int和Integer所用时长。
+示例请见： https://github.com/Higmin/practice/jvm/JVM_IntegerOrInt.java
 
 未完待续...  
 
