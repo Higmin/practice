@@ -22,7 +22,7 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
     }
 ```
 
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/spring  
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring  
 
 ### 2. IO
 
@@ -34,7 +34,7 @@ BIO:同步非阻塞
 NIO:同时支持阻塞与非阻塞模式，但这里我们以其同步非阻塞I/O模式来说明，并且是面向缓冲区的  
 AIO:异步非阻塞I/O模型   
 
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/io
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/io
 
 ### 3. Java 并发编程之 volatile 关键字
 
@@ -48,7 +48,7 @@ a.volatile 不保证原子性
 b.使用synchronized关键字,Lock,AtomicInteger来解决原子性的操作的问题  
 具体的详解可以在这里查看：https://blog.csdn.net/weixin_38497019/article/details/99430092  
 
-代码源码移步至：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/keyWord_volatile  
+代码源码移步至：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/concurrent/keyWord_volatile  
 
 ### 4. Java 锁机制之Lock
 Lock接口比同步方法和同步块（这里的同步就是考察Synchronized关键字）提供了更具扩展性的锁操作。Lock不是Java语言内置的，synchronized是Java语言的关键字，因此是内置特性，Lock是一个类，通过这个类可以实现同步访问；他们允许更灵活的结构，可以具有完全不同的性质，并且可以支持多个相关类的条件对象。它的优势有：可以使锁更公平；可以使线程在等待锁的时候响应中断；可以让线程尝试获取锁，并在无法获取锁的时候立即返回或者等待一段时间；可以在不同的范围，以不同的顺序获取和释放锁  
@@ -56,7 +56,7 @@ Lock接口比同步方法和同步块（这里的同步就是考察Synchronized�
 
 新增了 趣味练习：synchronized + 线程的挂起与唤醒，猜猜看输出什么？ https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/lock/Test09_practice.java 
 
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/lock
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/lock
 这里只是基础部分的示例，关于更全面的锁机制介绍，包括对公平锁，非公平锁，乐观锁，悲观锁，和分布式锁等的介绍或者导读，推荐一篇文章写的挺全面的，感兴趣的小伙伴可以去观摩一番：https://www.cnblogs.com/tison/p/8283233.html
 
 ### 5. ThreadLocal使用
@@ -71,8 +71,7 @@ b. 如果要使用ThreadLocal，通常定义为private static类型，在我看�
 应用场景:  
 ThreadLocal通常用来共享数据，当你想在多个方法中使用某个变量，这个变量是当前线程的状态，其它线程不依赖这个变量，你第一时间想到的就是把变量定义在方法内部，然后再方法之间传递参数来使用，这个方法能解决问题，但是有个烦人的地方就是，每个方法都需要声明形参，多处声明，多处调用。影响代码的美观和维护。有没有一种方法能将变量像private static形式来访问呢？这样在类的任何一处地方就都能使用。这个时候ThreadLocal大显身手了。  
 
-详情移步：
-https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadLocal  
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/concurrent/threadLocal  
 
 ### 6. 线程池
 在Java中，我们一般通过集成Thread类和实现Runnnable接口，调用线程的start()方法实现线程的启动。但如果并发的数量很多，而且每个线程都是执行很短的时间便结束了，那样频繁的创建线程和销毁进程会大大的降低系统运行的效率。线程池正是为了解决多线程效率低的问题而产生的，他使得线程可以被复用，就是线程执行结束后不被销毁，而是可以继续执行其他任务。（这里可以用tomcat做例子进行思考）  
@@ -80,7 +79,7 @@ https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concur
 
 本工程中从JUC中ThreadPoolExecutor类的四个应用和Spring的线程池开始介绍：  
 通常我们创建线程池都是通过Executors 工厂方法 Executors.newCachedThreadPool()（无界线程池，可以进行自动线程回收）、Executors.newFixedThreadPool(int)（固定大小线程池）和Executors.newSingleThreadExecutor()（单个后台线程），Executors.newScheduledThreadPool（定时，延时线程池）它们均为大多数使用场景预定义了设置。本工程中对这四种用法进行了简单的示例：  
-详情移步至：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadPool  
+详情移步至：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/concurrent/threadPool  
 但是这样简单的应用在生产中难免不出问题，所以，我们需要介绍一下Spring为我们提供的线程池技术ThreadPoolTaskExecutor  
 其实，它的实现方式完全是使用ThreadPoolExecutor进行实现（有点类似于装饰者模式。当然Spring提供的功能更加强大些，因为还有定时调度功能）。  
 具体的介绍和使用配置在工程示例中已经写的非常非常详细了，详情移步： https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadPool/ThreadPoolTaskExecutorTest.java  
@@ -102,7 +101,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 #### 7.3 接口里可以声明静态方法，并且可以在接口中实现。  
 #### 7.4 方法引用：方法引用提供了一个很有用的语义来直接访问类或者实例的已经存在的方法或者构造方法， 结合Lambda表达式，方法引用使语法结构紧凑简明。不需要复杂的引用。  
 
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/java8/Lambda  
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/java8/Lambda  
 
 #### 7.5 在这里顺便整理一下 jdk 1.8 中的日期时间API：  
 介绍一下两个概念：绝对时间和时区  
@@ -110,7 +109,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 注意：1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)  
 7.5.2.时区 是符合人们习惯的一种辅助计时方法，按照经线从东到西将绝对时间做了重新划分以方便全球不同经度的地区计时，现今全球共分为24个时区，并且规定相邻区域的时间相差1小时  
 本工程中举例了 Clock 、Instant、LocalDateTime、和 DateTimeFormatter 的用法。以及一些常用的工具类（Date转LocalDateTime，LocalDateTime转Date，LocalDateTime转指定格式（例如：yyyy-MM-dd HH:mm:ss ）的String类型）  
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/java8/date
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/java8/date
 
 关于 jdk 1.8 更多新特性，可以在这里了解更多：http://ifeve.com/java-8-features-tutorial  
 
@@ -124,7 +123,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 本工程中通过案例的模式展示设计模式通常的写法，加强理解。  
 
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/designPatterns  
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/designPatterns  
 
 ### 9. 防止XSS漏洞攻击解决办法
 
@@ -135,7 +134,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 本工程中以 SpringBoot 项目 为示例，写了具体实现，以供参考。
 
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/xssFilter  
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/xssFilter  
 
 ### 10. MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
 什么是MyBatis Generator ?  
@@ -164,12 +163,12 @@ public class MGB {
 }
 
 ```
-详情移步：https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/reverseEngineering  
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/reverseEngineering  
 
 ### 11. 警惕jvm自动拆装箱带来的性能损耗
 警惕jvm自动拆装箱带来的性能损耗   能用值类型解决问题的情况下 坚决不适用  引用类型
-本例中通过一个 count += i; 操作来输出int和Integer所用时长。
-示例请见： https://github.com/Higmin/practice/jvm/JVM_IntegerOrInt.java
+本例中通过一个 count += i; 操作来输出int和Integer所用时长。  
+示例请见： https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/jvm/JVM_IntegerOrInt.java
 
 未完待续...  
 
