@@ -175,6 +175,12 @@ public class MGB {
 再次感谢博主的分享。Test类中的测试图的原型，博主在文章中有详细的介绍，大家可参考理解。
 代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/dataStructure/graph  
 
+### 13. Kafka 生产者消费者示例
+本小节主要是用Java实现了Kafka 生产者和消费者，采用的是kafka_2.12,版本号在pom.xml中可以找到。  
+消费者采用自动偏移量提交方式。其中可以安装Kafka之后，通过生产者和消费者main方法启动测试。  
+官方文档：http://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html  
+GitHub示例代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/kafka  
+
 未完待续...  
 
 
