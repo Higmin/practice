@@ -172,7 +172,7 @@ public class MGB {
 
 ### 12. 图的实现及操作和广度优先遍历/深度优先遍历
 参考一篇优质博文：https://www.jianshu.com/p/62dbce1e6178  
-再次感谢博主的分享。Test类中的测试图的原型，博主在文章中有详细的介绍，大家可参考理解。
+再次感谢博主的分享。Test类中的测试图的原型，博主在文章中有详细的介绍，大家可参考理解。  
 代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/dataStructure/graph  
 
 ### 13. Kafka 生产者消费者示例
