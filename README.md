@@ -177,9 +177,16 @@ public class MGB {
 
 ### 13. Kafka 生产者消费者示例
 本小节主要是用Java实现了Kafka 生产者和消费者，采用的是kafka_2.12,版本号在pom.xml中可以找到。  
-消费者采用自动偏移量提交方式。其中可以安装Kafka之后，通过生产者和消费者main方法启动测试。  
+#### 13.1 Kafka消费者消费位移确认有自动提交与手动提交两种策略。在创建KafkaConsumer对象时，通过参数enable.auto.commit设定，true表示自动提交（默认）。自动提交策略由消费者协调器（ConsumerCoordinator）每隔${auto.commit.interval.ms}毫秒执行一次偏移量的提交。手动提交需要由客户端自己控制偏移量的提交。  
+(1)自动提交。在创建一个消费者时，默认是自动提交偏移量，当然我们也可以显示设置为自动。例如，我们创建一个消费者，该消费者自动提交偏移量。  
+(2)手动提交。在有些场景我们可能对消费偏移量有更精确的管理，以保证消息不被重复消费以及消息不被丢失。假设我们对拉取到的消息需要进行写入数据库处理，或者用于其他网络访问请求等等复杂的业务处理，在这种场景下，所有的业务处理完成后才认为消息被成功消费，这种场景下，我们必须手动控制偏移量的提交。  
+   Kafka 提供了异步提交（commitAsync）及同步提交（commitSync）两种手动提交的方式。两者的主要区别在于同步模式下提交失败时一直尝试提交，直到遇到无法重试的情况下才会结束，同时，同步方式下消费者线程在拉取消息时会被阻塞，直到偏移量提交操作成功或者在提交过程中发生错误。而异步方式下消费者线程不会被阻塞，可能在提交偏移量操作的结果还未返回时就开始进行下一次的拉取操作，在提交失败时也不会尝试提交。  
+   实现手动提交前需要在创建消费者时关闭自动提交，即设置enable.auto.commit=false。然后在业务处理成功后调用commitAsync()或commitSync()方法手动提交偏移量。由于同步提交会阻塞线程直到提交消费偏移量执行结果返回，而异步提交并不会等消费偏移量提交成功后再继续下一次拉取消息的操作，因此异步提交还提供了一个偏移量提交回调的方法commitAsync(OffsetCommitCallback callback)。当提交偏移量完成后会回调OffsetCommitCallback 接口的onComplete()方法，这样客户端根据回调结果执行不同的逻辑处理。  
+可以在安装Kafka之后，通过生产者和消费者main方法启动测试。  
 官方文档：http://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html  
 GitHub示例代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/kafka  
+#### 13.2 以时间戳查询消息
+   Kafka 在0.10.1.1 版本增加了时间戳索引文件，因此我们除了直接根据偏移量索引文件查询消息之外，还可以根据时间戳来访问消息。consumer-API 提供了一个offsetsForTimes(Map<TopicPartition, Long> timestampsToSearch)方法，该方法入参为一个Map 对象，Key 为待查询的分区，Value 为待查询的时间戳，该方法会返回时间戳大于等于待查询时间的第一条消息对应的偏移量和时间戳。需要注意的是，若待查询的分区不存在，则该方法会被一直阻塞。  
 
 未完待续...  
 

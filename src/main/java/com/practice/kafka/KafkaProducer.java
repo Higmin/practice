@@ -94,9 +94,7 @@ public class KafkaProducer {
 							}
 						}
 					}
-
 				}
-
 			}
 		});
 	}
