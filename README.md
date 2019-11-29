@@ -26,7 +26,11 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring  
 
 #### 1.2 自定义 Spring 工具类 SpringUtils.java
-写的一个工具类，对于非Spring管理的类 可以通过此类 来获取 Spring 容器的 ApplicationContext 和 Spring 容器中的 Bean。  
+写的一个工具类，对于非Spring管理的类 可以通过此类 来获取 Spring 容器中的 ApplicationContext 和 Spring 容器中的 Bean。  
+获取 Spring 容器中的 Bean 时提供了三种获取方式：
+ * 通过name获取 Bean.
+ * 通过class获取Bean.
+ * 通过name,以及Clazz返回指定的Bean
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springUtils  
 
