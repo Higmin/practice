@@ -4,8 +4,9 @@
 
 本工程包含了 SpringAOP，死锁，JUC同步锁，读-写同步锁，ThreadLocal使用,JUC线程池和Spring提供的线程池,jdk 1.8 中的日期时间API,数据结构中 图的实现及操作和广度优先遍历/深度优先遍历（其他待完善），生成XML文件工具类，防止XSS漏洞攻击解决办法,mybatis逆向工程，接口并发测试，BIO，NIO， AIO，Netty的服务，客户端... 并且在不断更新中,有不足之处请留言指出。  
 
-### 1. SpringAOP  
-
+### 1. Spring  
+Spring 是一个开源框架，是为了解决企业应用程序开发复杂性而创建的。框架的主要优势之一就是其分层架构，分层架构允许您选择使用哪一个组件，同时为 J2EE 应用程序开发提供集成的框架。  
+#### 1.1 SpringAOP  
 AOP称为面向切面编程,也是面试当中经常会被问到的一环，其实Spring AOP的底层原理就是动态代理，使用动态代理实质上就是调用时拦截对象方法，对方法进行改造、增强。  
 本工程中的AOP方面是从手写动态代理的角度来深入理解AOP的。具体分为三个阶段：静态代理，动态代理，还有CGLIB代理。 
 以动态代理来说,测试动态代理加强类时，创建main方法直接测试即可：  
@@ -23,6 +24,11 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
 ```
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring  
+
+#### 1.2 自定义 Spring 工具类 SpringUtils.java
+写的一个工具类，对于非Spring管理的类 可以通过此类 来获取 Spring 容器的 ApplicationContext 和 Spring 容器中的 Bean。  
+
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springUtils  
 
 ### 2. IO
 
