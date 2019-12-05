@@ -56,7 +56,7 @@ properties?,classPathEntry*,context+
         </javaClientGenerator>
 
         <!--数据库对应关系配置：配置要生成的schema、table-->
-        <table schema="cms" tableName="%">
+        <table schema="test" tableName="%">
             <!--将命名为*id的字段生成为主键-->
             <generatedKey column="id" sqlStatement="MySql"/>
         </table>
