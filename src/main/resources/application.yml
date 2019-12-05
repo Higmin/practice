@@ -1,0 +1,117 @@
+# ================== yml模板 （包括服务器相关配置、日志配置、kafka配置、数据源配置、druid连接池、JPA配置）===================================
+
+
+# # 服务器相关配置
+#server:
+#  port: 8443
+#  tomcat:
+#      max-threads: 800
+#      accept-count: 30000
+#      min-spare-threads: 20
+#      max-connections: 30000
+#  # 日志配置
+#logging:
+#  level:
+#    root: info
+#    org.springframework.web: INFO
+#  file:
+#    path: logs/logging
+#debug: true
+#
+# # kafka配置
+#spring:
+#  kafka:
+#    # kafka 地址
+#    bootstrap-servers: 192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092
+##    bootstrap-servers: localhost:9092
+#
+#    producer:
+#      # 事务id
+##      transaction-id-prefix: tran-
+#      # 重试次数
+##      retries: 1
+#      # producer发送消息后是否等待broker的ACK，默认是0 。（ 1 表示等待ACK，保证消息的可靠性）
+#      acks: 1
+#    consumer:
+#      # 消费组
+#      group-id: test-group
+#      # 消费者id
+#      client-id: test-client
+#      # 开启自动提交
+#      enable-auto-commit: true
+#      # 自动提交时间间隔
+#      auto-commit-interval: 1000
+#      # 反序列化
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      # 轮询时间间隔
+#      max-poll-records: 100
+#
+#    # 数据源配置
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/db_devices?characterEncoding=utf8&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: root
+#    username: root
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    # Druid连接池配置
+#    druid:
+#      # 初始化连接大小
+#      initial-size: 20
+#      # 最小连接池数量
+#      min-idle: 20
+#      # 最大连接池数量
+#      max-active: 500
+#      # 获取连接时最大等待时间，单位毫秒
+#      max-wait: 60000
+#      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+#      time-between-eviction-runs-millis: 60000
+#      # 配置一个连接在池中最小生存的时间，单位是毫秒
+#      min-evictable-idle-time-millis: 300000
+#      # 测试连接
+#      validation-query: SELECT 1 FROM DUAL
+#      # 申请连接的时候检测，建议配置为true，不影响性能，并且保证安全性
+#      test-while-idle: true
+#      # 获取连接时执行检测，建议关闭，影响性能
+#      test-on-borrow: false
+#      # 归还连接时执行检测，建议关闭，影响性能
+#      test-on-return: false
+#      #是否开启PSCache，PSCache对支持游标的数据库性能提升巨大，oracle建议开启，mysql下建议关闭
+#      pool-prepared-statements: false
+#      #开启poolPreparedStatements后生效
+#      max-pool-prepared-statement-per-connection-size: 20
+#      # 配置扩展插件，常用的插件有=>stat:监控统计  log4j:日志  wall:防御sql注入
+#      filters: stat,wall,slf4j
+#      # 通过connectProperties属性来打开mergeSql功能;慢SQL记录
+#      connection-properties: 'druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000'
+#      # 配置过滤器
+#      web-stat-filter:
+#        enabled: true
+#        # 设置过滤器过滤路径
+#        url-pattern: /*
+#        # 添加需要排除的格式信息
+#        exclusions: /druid/*,*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico
+#        session-stat-enable: true
+#        session-stat-max-count: 10
+#      # 配置注册一个StatViewServlet
+#      stat-view-servlet:
+#        enabled: true
+#        url-pattern: /druid/*
+#        # 是否能够重置数据
+#        reset-enable: false
+#        # 设置ip白名单
+#        allow: 127.0.0.1
+#        # 设置ip黑名单，优先级高于白名单
+#        deny: 192.168.1.121
+#        # 登录druid界面的账号密码
+#        login-username: admin
+#        login-password: 123
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    database: mysql
+#    show-sql: true
+#
+#
