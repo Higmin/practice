@@ -21,7 +21,7 @@
         <mysql-connector-java.version>5.1.28</mysql-connector-java.version>
         <junit-jupiter-api.version>RELEASE</junit-jupiter-api.version>
         <cglib.version>3.2.5</cglib.version>
-        <netty-all.version>4.1.33.Final</netty-all.version>
+        <netty-all.version>4.1.42.Final</netty-all.version>
         <rabbitmq.version>5.2.0</rabbitmq.version>
         <spring-boot-starter-amqp.version>1.5.2.RELEASE</spring-boot-starter-amqp.version>
         <swagger2.version>2.6.1</swagger2.version>
