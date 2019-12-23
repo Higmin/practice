@@ -34,6 +34,27 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springUtils  
 
+#### 1.3 Springboot 整合 Redis
+##### 1. 加入Redis相关依赖:  
+``
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+``
+##### 2. application.properties中加入redis相关配置  
+> spring.redis.database=0  # Redis数据库索引（默认为0）  
+> spring.redis.host=192.168.0.24  # Redis服务器地址  
+> spring.redis.port=6379  # Redis服务器连接端口  
+> spring.redis.password=  # Redis服务器连接密码（默认为空）  
+> spring.redis.pool.max-active=200  # 连接池最大连接数（使用负值表示没有限制））  
+> spring.redis.pool.max-wait=-1  # 连接池最大阻塞等待时间（使用负值表示没有限制）  
+> spring.redis.pool.max-idle=10 # 连接池中的最大空闲连接   
+> spring.redis.pool.min-idle=0  # 连接池中的最小空闲连接   
+> spring.redis.timeout=1000  # 连接超时时间（毫秒）  
+##### 3. 写一个redis配置类  
+ 详情请见：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springbootAndRedis  
+
 ### 2. IO
 
 java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很有规则，而且彼此之间存在非常紧密的联系， Java Io流的40多个类都是从如下4个抽象类基类中派生出来的。   
