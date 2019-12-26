@@ -55,6 +55,18 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
 ##### 3. 写一个redis配置类  
  详情请见：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springbootAndRedis  
 
+#### 1.4 Springboot 自定义注解
+Spring自定义注解实现参数校验。  
+本例中以校验MAC地址（格式：080027004C44）为例，实现参数校验自定义注解及检验规则。  
+
+详情请见：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/customizeValid  
+
+#### 1.5 Springboot 全局异常处理
+利用SpringAOP 面向切面编写全局异常处理。 
+本例是基于SpringBoot的全局异常处理，提供返回的结果集。
+
+详情请见：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/exception  
+
 ### 2. IO
 
 java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很有规则，而且彼此之间存在非常紧密的联系， Java Io流的40多个类都是从如下4个抽象类基类中派生出来的。   
