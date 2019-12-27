@@ -231,6 +231,21 @@ GitHub示例代码移步：https://github.com/higminteam/practice/blob/master/sr
 #### 13.2 以时间戳查询消息
    Kafka 在0.10.1.1 版本增加了时间戳索引文件，因此我们除了直接根据偏移量索引文件查询消息之外，还可以根据时间戳来访问消息。consumer-API 提供了一个offsetsForTimes(Map<TopicPartition, Long> timestampsToSearch)方法，该方法入参为一个Map 对象，Key 为待查询的分区，Value 为待查询的时间戳，该方法会返回时间戳大于等于待查询时间的第一条消息对应的偏移量和时间戳。需要注意的是，若待查询的分区不存在，则该方法会被一直阻塞。  
 
+### 14. 一些使用的工具类
+Excel相关处理  
+反射工具类. 提供调用getter/setter方法, 访问私有变量, 调用私有方法, 获取泛型类型Class, 被AOP过的真实类等工具函数。    
+sql操作工具类  
+字符集工具类  
+类型转换器  
+字符串格式化  
+时间工具类  
+全局配置类  
+Servlet客户端工具类  
+字符串工具类  
+yml配置处理工具类   
+代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/utils  
+
+
 未完待续...  
 
 
