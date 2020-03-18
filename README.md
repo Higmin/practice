@@ -225,7 +225,7 @@ public class MGB {
 本项目作为学习积累分享使用。 感谢博主分享，推荐大家去阅读。 
 参考博客：  
 https://www.cnblogs.com/onepixel/articles/7674659.html  
-https://www.cnblogs.com/yueansixing/articles/9125634.html 
+https://blog.csdn.net/morewindows/article/details/6684558  
  
 >算法分类
 十种常见排序算法可以分为两大类：
