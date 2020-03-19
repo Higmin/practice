@@ -27,7 +27,7 @@ public class QuickSort {
 	{
 		if (l < r)
 		{
-			// Swap(s[l], s[(l + r) / 2]); //将中间的这个数和第一个数交换 参见注1
+			// Swap(s[l], s[(l + r) / 2]); // 将中间的这个数和第一个数交换 参见注1
 			int i = l, j = r, x = s[l];
 			while (i < j)
 			{
