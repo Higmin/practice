@@ -1,6 +1,6 @@
 package com.practice.commonExcel.utils.text;
 
-import com.zdhs.dev.common.utils.StringUtils;
+import com.practice.commonExcel.utils.StringUtils;
 
 /**
  * 字符串格式化
