@@ -14,15 +14,21 @@ import java.util.Arrays;
  * 3、再对左右区间重复第二步，直到各区间只有一个数
  *
  * 概括来说为 挖坑填数+分治法
+ *
  * 挖坑填数 : 将某个位置的数 a 用临时变量 x 存储起来，那个该位置相当于挖了一个坑，可以通过置换放其他的合适的数，置换完之后坑的位置就变了，
  * 直到找到 a 正确的位置，再将 x 填进去。
+ *
+ * 分治法的精髓：
+ * 分--将问题分解为规模更小的子问题；
+ * 治--将这些规模更小的子问题逐个击破；
+ * 合--将已解决的子问题合并，最终得出“母”问题的解
  *
  * 参考此博客理解：https://www.cnblogs.com/yueansixing/articles/9125634.html
  **/
 public class QuickSort {
 	public static void main(String[] args) {
-	    int [] arr = new int[]{4,55,26,9,47,15,33,24,18,84,79,66,98};
-		int[] ints = quickSort(arr, 0, 12);
+	    int [] arr = new int[]{67,4,55,26,9,47,15,33,24,18,84,79,66,98};
+		int[] ints = quickSort(arr, 0, 13);
 		System.out.println(Arrays.toString(ints));
 	}
 
