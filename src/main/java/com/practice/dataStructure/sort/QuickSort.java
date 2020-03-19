@@ -27,6 +27,7 @@ public class QuickSort {
 	{
 		if (l < r)
 		{
+			// 1. 先挖坑填数的代码:
 			// Swap(s[l], s[(l + r) / 2]); // 将中间的这个数和第一个数交换 参见注1
 			int i = l, j = r, x = s[l];
 			while (i < j)
@@ -42,6 +43,8 @@ public class QuickSort {
 					s[j--] = s[i];
 			}
 			s[i] = x;
+
+			// 2. 再写 分治法 的代码:
 			quickSort(s, l, i - 1); // 递归调用
 			quickSort(s, i + 1, r);
 		}
