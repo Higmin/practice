@@ -1,4 +1,4 @@
-package com.practice.dataStructure.sort;
+package com.practice.algorithm.sort;
 
 import java.util.Arrays;
 
@@ -8,6 +8,8 @@ import java.util.Arrays;
  *
  * 冒泡排序   时间复杂度：最差为 O( n^2 )  最优是 O(n)
  *           空间复杂度为：O(1)
+ * 定义：冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。
+ * 走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。
  *
  * 基本思想是:
  * 1、比较相邻的元素。如果第一个比第二个大，就交换它们两个；
