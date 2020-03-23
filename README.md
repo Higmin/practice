@@ -4,7 +4,7 @@
 
 本工程包含了 SpringAOP，死锁，JUC同步锁，读-写同步锁，ThreadLocal使用,JUC线程池和Spring提供的线程池,jdk 1.8 中的日期时间API,数据结构中 图的实现及操作和广度优先遍历/深度优先遍历（其他待完善），生成XML文件工具类，防止XSS漏洞攻击解决办法,mybatis逆向工程，接口并发测试，BIO，NIO， AIO，Netty的服务，客户端... 并且在不断更新中,有不足之处请留言指出。  
 
-### 1. Spring  
+### 一、 Spring  
 Spring 是一个开源框架，是为了解决企业应用程序开发复杂性而创建的。框架的主要优势之一就是其分层架构，分层架构允许您选择使用哪一个组件，同时为 J2EE 应用程序开发提供集成的框架。  
 #### 1.1 SpringAOP  
 AOP称为面向切面编程,也是面试当中经常会被问到的一环，其实Spring AOP的底层原理就是动态代理，使用动态代理实质上就是调用时拦截对象方法，对方法进行改造、增强。  
@@ -67,7 +67,7 @@ Spring自定义注解实现参数校验。
 
 详情请见：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/exception  
 
-### 2. IO
+### 二、 IO
 
 java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很有规则，而且彼此之间存在非常紧密的联系， Java Io流的40多个类都是从如下4个抽象类基类中派生出来的。   
 InputStream/Reader: 所有的输入流的基类，前者是字节输入流，后者是字符输入流。  
@@ -79,7 +79,7 @@ AIO:异步非阻塞I/O模型
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/io
 
-### 3. Java 并发编程之 volatile 关键字
+### 三、 Java 并发编程之 volatile 关键字
 
 volatile关键字包含两层语义:  
 3.1 保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。（保证可见性）  
@@ -93,7 +93,7 @@ b.使用synchronized关键字,Lock,AtomicInteger来解决原子性的操作的�
 
 代码源码移步至：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/concurrent/keyWord_volatile  
 
-### 4. Java 锁机制之Lock
+### 四、 Java 锁机制之Lock
 Lock接口比同步方法和同步块（这里的同步就是考察Synchronized关键字）提供了更具扩展性的锁操作。Lock不是Java语言内置的，synchronized是Java语言的关键字，因此是内置特性，Lock是一个类，通过这个类可以实现同步访问；他们允许更灵活的结构，可以具有完全不同的性质，并且可以支持多个相关类的条件对象。它的优势有：可以使锁更公平；可以使线程在等待锁的时候响应中断；可以让线程尝试获取锁，并在无法获取锁的时候立即返回或者等待一段时间；可以在不同的范围，以不同的顺序获取和释放锁  
 本工程中是从死锁、如何避免死锁、同步锁、读-写同步锁方面来介绍。
 
@@ -102,7 +102,7 @@ Lock接口比同步方法和同步块（这里的同步就是考察Synchronized�
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/lock
 这里只是基础部分的示例，关于更全面的锁机制介绍，包括对公平锁，非公平锁，乐观锁，悲观锁，和分布式锁等的介绍或者导读，推荐一篇文章写的挺全面的，感兴趣的小伙伴可以去观摩一番：https://www.cnblogs.com/tison/p/8283233.html
 
-### 5. ThreadLocal使用
+### 五、 ThreadLocal使用
 
 ThreadLocal的官方API解释为:  
 “该类提供了线程局部 (thread-local) 变量。这些变量不同于它们的普通对应物，因为访问某个变量（通过其 get 或 set 方法）的每个线程都有自己的局部变量，它独立于变量的初始化副本。ThreadLocal 实例通常是类中的 private static 字段，它们希望将状态与某一个线程（例如，用户 ID 或事务 ID）相关联。”  
@@ -116,7 +116,7 @@ ThreadLocal通常用来共享数据，当你想在多个方法中使用某个变
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/concurrent/threadLocal  
 
-### 6. 线程池
+### 六、 线程池
 在Java中，我们一般通过集成Thread类和实现Runnnable接口，调用线程的start()方法实现线程的启动。但如果并发的数量很多，而且每个线程都是执行很短的时间便结束了，那样频繁的创建线程和销毁进程会大大的降低系统运行的效率。线程池正是为了解决多线程效率低的问题而产生的，他使得线程可以被复用，就是线程执行结束后不被销毁，而是可以继续执行其他任务。（这里可以用tomcat做例子进行思考）  
 很多人想问，线程池听起来高大上，但在实际工作中却很少使用。其实不然，在各种流行框架或者高性能的架构中，池化技术是无处不在的。  
 
@@ -127,7 +127,7 @@ ThreadLocal通常用来共享数据，当你想在多个方法中使用某个变
 其实，它的实现方式完全是使用ThreadPoolExecutor进行实现（有点类似于装饰者模式。当然Spring提供的功能更加强大些，因为还有定时调度功能）。  
 具体的介绍和使用配置在工程示例中已经写的非常非常详细了，详情移步： https://github.com/Higmin/practice/tree/master/src/main/java/com/practice/concurrent/threadPool/ThreadPoolTaskExecutorTest.java  
 
-### 7. Lambda表达式
+### 七、 Lambda表达式
 
 #### 7.1 什么是Lambda表达式:  
 Java 8 的一个大亮点是引入Lambda表达式，使用它设计的代码会更加简洁。  
@@ -156,7 +156,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 关于 jdk 1.8 更多新特性，可以在这里了解更多：http://ifeve.com/java-8-features-tutorial  
 
-### 8. 设计模式（未完待续...）
+### 八、 设计模式（未完待续...）
 
 使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。大致可以分为三类：创建型，结构型，和功能型。  
 工程中的具体代码示例情况如下：  
@@ -168,7 +168,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/designPatterns  
 
-### 9. 防止XSS漏洞攻击解决办法
+### 九、 防止XSS漏洞攻击解决办法
 
 第1步：创建包装request的类 XssHttpServletRequestWrapper  
 第2步：自定义过滤器过滤器拦截请求（创建过滤器）  
@@ -179,7 +179,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/xssFilter  
 
-### 10. MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
+### 十、 MyBatis Generator逆向工程（根据数据表生成实体，mapper,xxxxmapper.xml）
 什么是MyBatis Generator ?  
 MyBatis Generator是一个可以用来生成Mybatis dao,entity,Mapper文件的一个工具,在项目的过程中可以省去很多重复的工作,我们只要在MyBatis Generator的配置文件中配置好要生成的表名与包名，然后运行一条命令就会生成一堆文件。 
 
@@ -208,12 +208,12 @@ public class MGB {
 ```
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/reverseEngineering  
 
-### 11. 警惕jvm自动拆装箱带来的性能损耗
+### 十一、 警惕jvm自动拆装箱带来的性能损耗
 警惕jvm自动拆装箱带来的性能损耗   能用值类型解决问题的情况下 坚决不适用  引用类型
 本例中通过一个 count += i; 操作来输出int和Integer所用时长。  
 示例请见： https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/jvm/JVM_IntegerOrInt.java
 
-### 12. 数据结构和算法
+### 十二、 数据结构和算法
 
 #### 12.1 数据结构
 ##### 12.1.1 图的实现及操作和广度优先遍历/深度优先遍历
@@ -336,7 +336,7 @@ https://blog.csdn.net/morewindows/article/details/6684558
 代码待完善。。。  
 
 
-### 13. Kafka 生产者消费者示例
+### 十三、 Kafka 生产者消费者示例
 本小节主要是用Java实现了Kafka 生产者和消费者，采用的是kafka_2.12,版本号在pom.xml中可以找到。  
 #### 13.1 Kafka消费者消费位移确认有自动提交与手动提交两种策略。在创建KafkaConsumer对象时，通过参数enable.auto.commit设定，true表示自动提交（默认）。自动提交策略由消费者协调器（ConsumerCoordinator）每隔${auto.commit.interval.ms}毫秒执行一次偏移量的提交。手动提交需要由客户端自己控制偏移量的提交。  
 (1)自动提交。在创建一个消费者时，默认是自动提交偏移量，当然我们也可以显示设置为自动。例如，我们创建一个消费者，该消费者自动提交偏移量。  
@@ -349,7 +349,7 @@ GitHub示例代码移步：https://github.com/higminteam/practice/blob/master/sr
 #### 13.2 以时间戳查询消息
    Kafka 在0.10.1.1 版本增加了时间戳索引文件，因此我们除了直接根据偏移量索引文件查询消息之外，还可以根据时间戳来访问消息。consumer-API 提供了一个offsetsForTimes(Map<TopicPartition, Long> timestampsToSearch)方法，该方法入参为一个Map 对象，Key 为待查询的分区，Value 为待查询的时间戳，该方法会返回时间戳大于等于待查询时间的第一条消息对应的偏移量和时间戳。需要注意的是，若待查询的分区不存在，则该方法会被一直阻塞。  
 
-### 14. 一些使用的工具类
+### 十四、 一些使用的工具类
 Excel相关处理  
 反射工具类. 提供调用getter/setter方法, 访问私有变量, 调用私有方法, 获取泛型类型Class, 被AOP过的真实类等工具函数。    
 sql操作工具类  
