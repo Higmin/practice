@@ -1,4 +1,4 @@
-package com.practice.dataStructure.sort;
+package com.practice.algorithm.sort;
 
 import java.util.Arrays;
 
@@ -8,6 +8,8 @@ import java.util.Arrays;
  *
  * 快速排序  时间复杂度：最差为 O( n^2 )  最优是 O( nlogN )    对数函数以2为底
  *          空间复杂度为：O( nlogN )  对数函数以2为底
+ * 定义：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。
+ * 概括来说为：挖坑填数+分治法。
  *
  * 基本思想是:
  * 1、先从数列中取出一个数作为基准数
