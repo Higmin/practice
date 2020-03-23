@@ -29,7 +29,7 @@ public class SelectionSort {
 
 	public static int[] selectionSort(int s[]) {
 		int temp , minIndex;
-		// 长度为 length 的数组，不断把最大的数排在最后边，所以把 length - 1 个最大的数排序完成，即可确定最终的排序。因此 i < s.length - 1
+		// 长度为 length 的数组，不断把最小的数排在前边，所以把 length - 1 个最小的数排序完成，即可确定最终的排序。因此 i < s.length - 1
 		for (int i = 0; i < s.length - 1; i ++) {
 			minIndex = i;
 			// todo 重点：寻找最小（最大）的数。从前向后排列，直到排序完成。所以每次寻找都是排好序的下一个元素开始，到最后一个元素为止。
@@ -38,6 +38,7 @@ public class SelectionSort {
 					minIndex = j;
 				}
 			}
+			// 每次找到最小数的角标之后，开始置换元素。
 			temp = s[i];
 			s[i] = s[minIndex];
 			s[minIndex] = temp;
