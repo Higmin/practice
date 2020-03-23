@@ -251,7 +251,8 @@ https://blog.csdn.net/morewindows/article/details/6684558
 ②第i趟排序(i=1,2,3…n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1..i]和R[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；  
 ③n-1趟结束，数组有序化了。  
 
-代码待完善。。。  
+代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/algorithm/sort/SelectionSort.java  
+  
 ##### 12.2.3 插入排序（Insertion Sort）
 插入排序（Insertion-Sort）的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。一般来说，插入排序都采用in-place在数组上实现。
 >算法描述如下：  
