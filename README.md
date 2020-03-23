@@ -241,7 +241,8 @@ https://blog.csdn.net/morewindows/article/details/6684558
 ③针对所有的元素重复以上的步骤，除了最后一个；  
 ④重复步骤1~3，直到排序完成。  
 
-代码待完善。。。  
+代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/algorithm/sort/BubbleSort.java  
+
 ##### 12.2.2 选择排序（Selection Sort）
 选择排序(Selection-sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。n个记录的直接选择排序可经过n-1趟直接选择排序得到有序结果。 
 
@@ -291,7 +292,7 @@ https://blog.csdn.net/morewindows/article/details/6684558
 ②分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边；  
 ③再对左右区间重复第二步，直到各区间只有一个数。  
 
-代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/dataStructure/sort/QuickSort.java  
+代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/algorithm/sort/QuickSort.java  
 
 ##### 12.2.7 堆排序（Heap Sort）
 堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。
