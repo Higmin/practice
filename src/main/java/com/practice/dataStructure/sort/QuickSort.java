@@ -29,8 +29,9 @@ import java.util.Arrays;
 public class QuickSort {
 	public static void main(String[] args) {
 	    int [] arr = new int[]{67,4,55,26,9,47,15,33,24,18,84,79,66,98};
+		System.out.println("排序前： " + Arrays.toString(arr));
 		int[] ints = quickSort(arr, 0, 13);
-		System.out.println(Arrays.toString(ints));
+		System.out.println("排序后： " + Arrays.toString(ints));
 	}
 
 	public static int[] quickSort(int s[], int l, int r) // l : left    r : right
