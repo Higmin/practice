@@ -27,7 +27,9 @@ public class BubbleSort {
 	}
 
 	public static int[] bubbleSort(int s[]) {
+		// 长度为 length 的数组，不断把最大的数排在最后边，所以把 length - 1 个最大的数排序完成，即可确定最终的排序。因此 i < s.length - 1
 		for (int i = 0; i < s.length - 1; i ++) {
+			// 由于是相邻的两个数比较，所以需要确定的最大角标是 末尾的前一位; 然后每确定一个数，循环的次数就可以减1，所以 j < s.length - 1 -i
 			for (int j = 0; j < s.length - 1 -i; j++) {
 				if (s[j] > s[j + 1]) { // 比较相邻元素大小 ， 如果 s[j] > s[j + 1]  则交换位置。
 					int temp = s[j + 1];
