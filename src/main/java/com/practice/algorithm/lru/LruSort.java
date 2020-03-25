@@ -18,7 +18,7 @@ public class LruSort<K,V>  extends LinkedHashMap<K,V> {
 	private int cacheSize;
 
 	public LruSort(int cacheSize) {
-		super(10,0.75f,true);
+		super(10,0.75f,true); // true 表示让 linkedHashMap 按照访问顺序来进行排序，最近访问的放在头部，最老访问的放在尾部
 		this.cacheSize = cacheSize;
 	}
 
