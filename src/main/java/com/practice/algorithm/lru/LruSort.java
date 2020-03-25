@@ -34,6 +34,11 @@ public class LruSort<K,V>  extends LinkedHashMap<K,V> {
 		return super.put(key, value);
 	}
 
+	/**
+	 * 通过覆盖这个方法，加入一定的条件，满足条件返回true。当put进新的值方法返回true时，便移除该map中最老的键和值。
+	 * @param eldest
+	 * @return
+	 */
 	@Override
 	protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
 		//当map中数量大于指定缓存个数的时候，自动删除最近最久未使用的数据
