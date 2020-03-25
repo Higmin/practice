@@ -35,7 +35,7 @@ public class LruSort<K,V>  extends LinkedHashMap<K,V> {
 	}
 
 	/**
-	 * 通过覆盖这个方法，加入一定的条件，满足条件返回true。当put进新的值方法返回true时，便移除该map中最老的键和值。
+	 * 通过覆盖这个方法，加入一定的条件，满足条件返回true。当put进新的值, 方法返回true时，便移除该map中最老的键和值。
 	 * @param eldest
 	 * @return
 	 */
