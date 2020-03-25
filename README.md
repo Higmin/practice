@@ -335,6 +335,11 @@ https://blog.csdn.net/morewindows/article/details/6684558
 
 代码待完善。。。  
 
+#### 12.3 最近最久未使用（LRU）算法
+LRU是Least Recently Used的缩写，即最近最少使用，是一种常用的淘汰机制算法。  
+常见的使用该算法的有：Redis缓存淘汰机制，这里我们用 java 手写一个 LRU 算法 ：我们采用 哈希表 + 双向链表 的数据结构实现。 
+由于java 中已经有这样的数据结构了，比如 LinkedHashMap ，那么我们实现起来就简单多了。  
+代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/algorithm/lru/LruSort.java  
 
 ### 十三、 Kafka 生产者消费者示例
 本小节主要是用Java实现了Kafka 生产者和消费者，采用的是kafka_2.12,版本号在pom.xml中可以找到。  
