@@ -174,6 +174,8 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 手写生产者消费者模型  
 ##### 8.2.1 利用阻塞队列实现  
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/designPatterns/ProducerAndConsumer/blockingQueue  
+##### 8.2.2 利用  wait/notify 机制 实现  
+详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/designPatterns/ProducerAndConsumer/waitAndNotify  
 
 ### 九、 防止XSS漏洞攻击解决办法
 
