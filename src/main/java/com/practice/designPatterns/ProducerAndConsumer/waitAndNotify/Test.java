@@ -8,10 +8,11 @@ import java.util.LinkedList;
  *
  * 测试运行
  *
+ * LinkedList是线程不安全的，如果消费者不加锁的话，会出现重复消费消息的情况。
  **/
 public class Test {
 	public static void main(String[] args) {
-		LinkedList<Object> msgQueue = new LinkedList<>();
+		LinkedList<Object> msgQueue = new LinkedList<>(); // 这里使用 LinkedList 需要注意的是：LinkedList是线程不安全的
 
 		Consumer consumer = new Consumer(msgQueue);
 		Thread consumerThread = new Thread(consumer, "consumer");

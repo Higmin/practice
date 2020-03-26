@@ -26,9 +26,10 @@ public class Producer implements Runnable{
 
 	@Override
 	public void run() {
-		for (int i = 0; i < 5; i++){
+		for (int i = 0; i < 100; i++){
 			msg = "模拟消息-" + i;
 			msgQueue.offer(msg);
+			msgQueue.notifyAll();
 //		System.out.println("生产者" + Thread.currentThread().getName() +"消息：" + msg);
 		}
 	}
