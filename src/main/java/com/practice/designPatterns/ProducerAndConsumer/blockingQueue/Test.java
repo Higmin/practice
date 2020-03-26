@@ -24,7 +24,6 @@ public class Test {
 		consumer_4.start(); // 监听队列，消费消息
 		consumer_5.start(); // 监听队列，消费消息
 
-
 		for (int i = 0; i < 100; i++){
 			Producer producer = new Producer(msgQueue);
 			producer.produceMsg("消息-" + i);
