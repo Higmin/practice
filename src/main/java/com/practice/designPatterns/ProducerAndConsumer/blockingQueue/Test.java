@@ -15,12 +15,12 @@ public class Test {
 		BlockingQueue<Object> msgQueue = new LinkedBlockingDeque<>();
 		Thread consumerThread = new Thread(new Consumer(msgQueue));
 		consumerThread.start(); // 监听队列，消费消息
-		for (int i = 0; i < 10; i++){
+		for (int i = 0; i < 100; i++){
 			Producer producer = new Producer(msgQueue);
 			producer.produceMsg("消息-" + i);
 			Thread producerThread = new Thread();
 			producerThread.start();
-			Thread.sleep(2000);
+//			Thread.sleep(2000);
 		}
 
 	}
