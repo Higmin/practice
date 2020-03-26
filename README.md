@@ -170,7 +170,7 @@ stream()也是JDK8新增的流，你的表达式中将list转换为流，就可�
 
 本工程中通过案例的模式展示设计模式通常的写法，加强理解。  
 
-#### 8.2 生产者消费者模型
+#### 8.2 生产者消费者模型（Producer-Consumer）
 手写生产者消费者模型  
 ##### 8.2.1 利用阻塞队列实现  
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/designPatterns/ProducerAndConsumer/blockingQueue  
