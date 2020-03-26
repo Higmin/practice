@@ -26,11 +26,12 @@ public class Test {
 
 		for (int i = 0; i < 100; i++){
 			Producer producer = new Producer(msgQueue);
-			producer.produceMsg("消息-" + i);
-			Thread producerThread = new Thread();
+			producer.setMsg("消息-" + i);
+			Thread producerThread = new Thread(producer, "Producer_" + i); // 模拟多线程生产数据
 			producerThread.start();
 //			Thread.sleep(2000);
 		}
 
 	}
+
 }

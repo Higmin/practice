@@ -32,9 +32,17 @@ public class Producer implements Runnable {
 	public void run() {
 		try {
 			msgQueue.put(msg);
-//			System.out.println("生产者生产消息：" + msg);
+//			System.out.println("生产者" + Thread.currentThread().getName() + "生产消息：" + msg);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }

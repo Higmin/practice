@@ -37,4 +37,12 @@ public class Consumer implements Runnable{
 			e.printStackTrace();
 		}
 	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 }
