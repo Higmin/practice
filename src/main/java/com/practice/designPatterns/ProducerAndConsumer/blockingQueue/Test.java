@@ -12,7 +12,8 @@ import java.util.concurrent.LinkedBlockingDeque;
  **/
 public class Test {
 	public static void main(String[] args) throws InterruptedException {
-		BlockingQueue<Object> msgQueue = new LinkedBlockingDeque<>();
+		BlockingQueue<Object> msgQueue = new LinkedBlockingDeque<>(); // 这里使用 LinkedBlockingDeque 需要注意的是：LinkedBlockingDeque是线程安全的
+
 		Thread consumer_1 = new Thread(new Consumer(msgQueue), "consumer_1");
 		Thread consumer_2 = new Thread(new Consumer(msgQueue), "consumer_2");
 		Thread consumer_3 = new Thread(new Consumer(msgQueue), "consumer_3");
@@ -24,14 +25,11 @@ public class Test {
 		consumer_4.start(); // 监听队列，消费消息
 		consumer_5.start(); // 监听队列，消费消息
 
-		for (int i = 0; i < 100; i++){
-			Producer producer = new Producer(msgQueue);
-			producer.setMsg("消息-" + i);
-			Thread producerThread = new Thread(producer, "Producer_" + i); // 模拟多线程生产数据
-			producerThread.start();
-//			Thread.sleep(2000);
-		}
+
+		Producer producer = new Producer(msgQueue);
+		Thread producerThread = new Thread(producer, "Producer");
+		producerThread.start();
+
 
 	}
-
 }

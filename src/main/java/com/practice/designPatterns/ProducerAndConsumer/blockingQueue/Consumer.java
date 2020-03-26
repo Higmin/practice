@@ -30,8 +30,10 @@ public class Consumer implements Runnable{
 	public void run() {
 		try {
 			while(true){
-				Object msg = msgQueue.take();
-				System.out.println("消费者" + Thread.currentThread().getName() +" 消费消息：" + msg.toString());
+				if (!msgQueue.isEmpty()){
+					Object msg = msgQueue.take();
+					System.out.println("消费者" + Thread.currentThread().getName() +" 消费消息：" + msg.toString());
+				}
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();

@@ -31,8 +31,11 @@ public class Producer implements Runnable {
 	@Override
 	public void run() {
 		try {
-			msgQueue.put(msg);
+			for (int i = 0; i < 100; i++) {
+				msg = "模拟消息-" + i;
+				msgQueue.put(msg);
 //			System.out.println("生产者" + Thread.currentThread().getName() + "生产消息：" + msg);
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
