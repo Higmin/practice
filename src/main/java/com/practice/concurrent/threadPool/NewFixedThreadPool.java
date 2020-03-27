@@ -1,7 +1,6 @@
 package com.practice.concurrent.threadPool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author Higmin
@@ -16,8 +15,18 @@ import java.util.concurrent.Executors;
  *
  **/
 public class NewFixedThreadPool {
+
+    /**
+     * 参数介绍：
+     * corePoolSize与maximumPoolSize相等，即其线程全为核心线程，是一个固定大小的线程池，是其优势；
+     * keepAliveTime = 0 该参数默认对核心线程无效，而FixedThreadPool全部为核心线程；
+     * workQueue 为LinkedBlockingQueue（无界阻塞队列），队列最大值为Integer.MAX_VALUE。如果任务提交速度持续大余任务处理速度，会造成队列大量阻塞。因为队列很大，很有可能在拒绝策略前，内存溢出。是其劣势；
+     * FixedThreadPool的任务执行是无序的.
+     *
+     * 适用场景：可用于Web服务瞬时削峰，但需注意长时间持续高峰情况造成的队列阻塞。
+     */
     public static void main(String[] args) {
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+        ExecutorService fixedThreadPool = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
         for (int i = 0; i < 10; i++) {
             final int index = i;
             // 这里是java 8 的 lambda 表达式

@@ -1,7 +1,6 @@
 package com.practice.concurrent.threadPool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author Higmin
@@ -16,7 +15,14 @@ import java.util.concurrent.Executors;
 public class NewSingleThreadExecutor {
 
     public static void main(String[] args) {
-        ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+        ExecutorService singleThreadExecutor =  new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
+        // ExecutorService singleThreadExecutor =  new FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>()));
+        /**
+         * 最好在外面包一层 FinalizableDelegatedExecutorService包装，这一层有什么用呢？
+         *  FixedThreadPool可以向下转型为ThreadPoolExecutor，并对其线程池进行配置，而SingleThreadExecutor被包装后，无法成功向下转型。
+         *  因此，SingleThreadExecutor被定以后，无法修改，做到了真正的Single。
+         */
+
         for (int i = 0; i < 10; i++) {
             final int index = i;
             // 这里是java 8 的 lambda 表达式

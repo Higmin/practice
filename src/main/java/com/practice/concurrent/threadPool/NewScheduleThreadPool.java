@@ -2,6 +2,7 @@ package com.practice.concurrent.threadPool;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -16,8 +17,14 @@ import java.util.concurrent.TimeUnit;
  *
  **/
 public class NewScheduleThreadPool {
+
+    /**
+     * newScheduledThreadPool调用的是ScheduledThreadPoolExecutor的构造方法，
+     * 而ScheduledThreadPoolExecutor继承了ThreadPoolExecutor，构造是还是调用了其父类的构造方法。
+     *
+     */
     public static void main(String[] args) {
-        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);
+        ScheduledExecutorService scheduledThreadPool = new ScheduledThreadPoolExecutor(5);
         // 这里是java 8 的 lambda 表达式
         // scheduledThreadPool.execute(() -> {}, delay, unit) 等价于  scheduledThreadPool.schedule(new Runnable() {}, delay, unit)
         // 测试 1 ：预期结果 ：任务延时 3 秒执行

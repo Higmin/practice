@@ -1,7 +1,6 @@
 package com.practice.concurrent.threadPool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author Higmin
@@ -20,8 +19,16 @@ import java.util.concurrent.Executors;
  **/
 public class NewCachedThreadPool {
 
+    /**
+     * 参数介绍：
+     * corePoolSize = 0，maximumPoolSize = Integer.MAX_VALUE，即线程数量几乎无限制；
+     * keepAliveTime = 60s，线程空闲60s后自动结束。
+     * workQueue 为 SynchronousQueue 同步队列，这个队列类似于一个接力棒，入队出队必须同时传递，因为CachedThreadPool线程创建无限制，不会有队列等待，所以使用SynchronousQueue；
+     *
+     * 适用场景：快速处理大量耗时较短的任务，如Netty的NIO接受请求时，可使用CachedThreadPool。
+     */
     public static void main(String[] args) {
-        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+        ExecutorService cachedThreadPool = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
         for (int i = 0; i < 10; i++) {
             final int index = i;
             try {
