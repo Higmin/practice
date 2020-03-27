@@ -9,7 +9,6 @@ import java.util.Queue;
  *  利用  wait/notify 机制 实现 生产者-消费者模型
  *
  *  wait/notify 是线程通信的一种方式
- *
  **/
 public class Producer implements Runnable{
 	private final Queue msgQueue;
