@@ -40,18 +40,18 @@ public class MergeTwoSortedList {
 	// 思路：我们创建一个新的链表，通过比较两个有序链表的元素，新链表的指针不断指向正确的元素，结果将这个新的链表返回
 	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		ListNode dummy = new ListNode(-1); // 创建一个假的头节点，防止指针移动找不到真正的列表头。
-		ListNode prev = dummy; // 新链表的前驱指针，用于放入新的元素并不断向后移动
+		ListNode pre = dummy; // 新链表的前驱指针，用于放入新的元素并不断向后移动
 		while(l1 != null && l2 != null){
 			if (l1.val <= l2.val){
-				prev.next = l1;
+				pre.next = l1;
 				l1 = l1.next;
 			}else {
-				prev.next = l2;
+				pre.next = l2;
 				l2 = l2.next;
 			}
-			prev = prev.next;
+			pre = pre.next;
 		}
-		prev.next = (l1 == null) ? l2 : l1; // 如果两个链表不一样长，剩余部分都加到新链表中
+		pre.next = (l1 == null) ? l2 : l1; // 如果两个链表不一样长，剩余部分都加到新链表中
 		return dummy.next;
 	}
 }
