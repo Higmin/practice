@@ -9,6 +9,10 @@ import java.util.LinkedList;
  * 测试运行
  *
  * LinkedList是线程不安全的，如果消费者不加锁的话，会出现重复消费消息的情况。
+ *
+ * wait()：当缓冲区已满/空时，生产者/消费者线程停止自己的执行，放弃锁，使自己处于等待状态，让其他线程执行。
+ * notify()：当生产者/消费者向缓冲区放入/取出一个产品时，向其他等待的线程发出可执行的通知，同时放弃锁，使自己处于等待状态。
+ *
  **/
 public class Test {
 	public static void main(String[] args) {
@@ -28,7 +32,7 @@ public class Test {
 		consumer_5.start(); // 监听队列，消费消息
 
 
-		Producer producer = new Producer(msgQueue);
+		Producer producer = new Producer(msgQueue, 50);
 		Thread producerThread = new Thread(producer, "producer");
 		producerThread.start();
 	}

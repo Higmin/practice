@@ -1,6 +1,5 @@
 package com.practice.designPatterns.ProducerAndConsumer.waitAndNotify;
 
-
 import java.util.Queue;
 
 /**
@@ -14,9 +13,11 @@ import java.util.Queue;
 public class Producer implements Runnable{
 	private final Queue msgQueue;
 	private String msg;
+	private Integer maxSize;
 
-	public Producer(Queue msgQueue) {
+	public Producer(Queue msgQueue, Integer maxSize) {
 		this.msgQueue = msgQueue;
+		this.maxSize = maxSize;
 	}
 
 	public void produceMsg(String msg){
@@ -27,10 +28,20 @@ public class Producer implements Runnable{
 	@Override
 	public void run() {
 		for (int i = 0; i < 100; i++){
-			msg = "模拟消息-" + i;
-			msgQueue.offer(msg);
-			msgQueue.notifyAll();
+			synchronized (msgQueue){
+				while (msgQueue.size() == maxSize){
+					System.out .println("消息队列已满！请等待生产！");
+					try {
+						msgQueue.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				msg = "模拟消息-" + i;
+				msgQueue.offer(msg);
+				msgQueue.notifyAll();
 //		System.out.println("生产者" + Thread.currentThread().getName() +"消息：" + msg);
+			}
 		}
 	}
 
@@ -40,5 +51,13 @@ public class Producer implements Runnable{
 
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+
+	public Integer getMaxSize() {
+		return maxSize;
+	}
+
+	public void setMaxSize(Integer maxSize) {
+		this.maxSize = maxSize;
 	}
 }

@@ -25,18 +25,20 @@ public class Consumer implements Runnable{
 
 	@Override
 	public void run() {
-		synchronized (msgQueue){
-			while(msgQueue.isEmpty()){
-				System.out.println("消息为空！" );
-				try {
-					msgQueue.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+		while(true){
+			synchronized (msgQueue){
+				while(msgQueue.isEmpty()){
+//				System.out.println("消息为空！" );
+					try {
+						msgQueue.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 				}
+				Object msg = msgQueue.poll();
+				System.out.println("消费者" + Thread.currentThread().getName() +"消息：" + msg.toString());
+				msgQueue.notifyAll();
 			}
-			Object msg = msgQueue.poll();
-			System.out.println("消费者" + Thread.currentThread().getName() +"消息：" + msg.toString());
-//			msgQueue.notifyAll();
 		}
 	}
 
