@@ -14,7 +14,7 @@ package com.practice.algorithm.leetcode_passing;
  * 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
  * 进阶:
  *
- * 如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
+ * 进阶:如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  **/
 public class MaximumSubarray {
 
