@@ -85,12 +85,37 @@ public class MergeKSortedLists {
     }
 
     /**
-     * 合并两个有序链表
+     * 合并两个有序链表  ==》 方法1 双指针
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode merge(ListNode l1, ListNode l2) {
+        // 思路：我们创建一个新的链表，通过比较两个有序链表的元素，新链表的指针不断指向正确的元素，结果将这个新的链表返回
+        ListNode dummy = new ListNode(-1); // 创建一个假的头节点，防止指针移动找不到真正的列表头。
+        ListNode prev = dummy; // 新链表的前驱指针，用于放入新的元素并不断向后移动
+        while(l1 != null && l2 != null){
+            if (l1.val <= l2.val){
+                prev.next = l1;
+                l1 = l1.next;
+            }else {
+                prev.next = l2;
+                l2 = l2.next;
+            }
+            prev = prev.next;
+        }
+        prev.next = (l1 == null) ? l2 : l1; // 如果两个链表不一样长，剩余部分都加到新链表中
+        return dummy.next;
+    }
+
+
+    /**
+     * 合并两个有序链表 ==》 方法2 递归
      * @param left
      * @param right
      * @return
      */
-    public static ListNode merge(ListNode left, ListNode right){
+    public static ListNode merge2(ListNode left, ListNode right){
         if(left == null || right == null){
             return left == null ? right : left;
         }
