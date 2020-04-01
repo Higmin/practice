@@ -66,6 +66,14 @@ public class MergeKSortedLists {
         return mergeSort(lists, 0, lists.length - 1);
     }
 
+    /**
+     *  通过mid将数组一分为二，并不断缩小规模，当规模为1时返回并开始合并
+     * 	通过合并两个链表，不断增大其规模，整体看就是不断缩小-最后不断扩大的过程
+     * @param lists
+     * @param start
+     * @param end
+     * @return
+     */
     public static ListNode mergeSort(ListNode[] lists, int start, int end){
         if(start == end){
             return lists[start];
@@ -76,6 +84,12 @@ public class MergeKSortedLists {
         return merge(left, right);
     }
 
+    /**
+     * 合并两个有序链表
+     * @param left
+     * @param right
+     * @return
+     */
     public static ListNode merge(ListNode left, ListNode right){
         if(left == null || right == null){
             return left == null ? right : left;
