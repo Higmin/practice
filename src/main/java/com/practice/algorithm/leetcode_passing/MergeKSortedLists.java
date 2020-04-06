@@ -90,7 +90,7 @@ public class MergeKSortedLists {
      * @param l2
      * @return
      */
-    public ListNode merge(ListNode l1, ListNode l2) {
+    public static ListNode merge(ListNode l1, ListNode l2) {
         // 思路：我们创建一个新的链表，通过比较两个有序链表的元素，新链表的指针不断指向正确的元素，结果将这个新的链表返回
         ListNode dummy = new ListNode(-1); // 创建一个假的头节点，防止指针移动找不到真正的列表头。
         ListNode prev = dummy; // 新链表的前驱指针，用于放入新的元素并不断向后移动
