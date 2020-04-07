@@ -42,13 +42,16 @@ class TreeNode {
 public class N_104_MaximumDepthOfBinaryTree {
 	/**
 	 * 实现方法一：递归
+	 * 1. 首先判断终止条件：当查到左（右）子树为空的时候，则停止递归
+	 * 2. 返回值：停止时说明已经到底了，我们返回0；否则没有到底，我们需要在层数上 +1；
+	 * 3. 判断左右子树的大小，最大的值即为树的高度。下面我们来写代码：
 	 * @param root
 	 * @return
 	 */
 	public int maxDepth_1(TreeNode root){
 		if (root == null) return 0;
-		int left = maxDepth_1(root.left) + 1;
-		int right = maxDepth_1(root.right) + 1;
+		int left = maxDepth_1(root.left) + 1; // 左子树的高度:每递归一次，层数 + 1
+		int right = maxDepth_1(root.right) + 1; //右子树的高度：同理
 		return Math.max(left, right);
 	}
 
@@ -67,7 +70,7 @@ public class N_104_MaximumDepthOfBinaryTree {
 			Pair<TreeNode, Integer> cur = stack.pop();
 			TreeNode curNode = cur.getKey();
 			Integer curValue = cur.getValue();
-			res = Math.max(res, curValue);
+			res = Math.max(res, curValue); //
 
 			if (curNode.right != null){ // 判断是否有右节点，有的话压入栈
 				Pair<TreeNode, Integer> rightNode = new Pair<>(curNode.right, curValue + 1);
