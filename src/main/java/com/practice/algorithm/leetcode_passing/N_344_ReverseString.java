@@ -22,7 +22,7 @@ import java.util.Stack;
  * 输入：["H","a","n","n","a","h"]
  * 输出：["h","a","n","n","a","H"]
  **/
-public class ReverseString {
+public class N_344_ReverseString {
 
 	public static void main(String[] args) {
 		char[] s = new char[]{'a','b','c','d','e'};

@@ -20,7 +20,7 @@ package com.practice.algorithm.leetcode_passing;
  *     }
  * }
  */
-public class IntersectionOfTwoLinkedLists {
+public class N_160_IntersectionOfTwoLinkedLists {
 
     public static void main(String[] args) {
         ListNode l11 = new ListNode(3);

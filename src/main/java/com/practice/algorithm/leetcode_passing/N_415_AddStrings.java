@@ -14,7 +14,7 @@ package com.practice.algorithm.leetcode_passing;
  * 3.num1 和num2 都不包含任何前导零。
  * 4.你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式。
  */
-public class AddStrings {
+public class N_415_AddStrings {
 
     public static void main(String[] args) {
         String str1 = "9999990";

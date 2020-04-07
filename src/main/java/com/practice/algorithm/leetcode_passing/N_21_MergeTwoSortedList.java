@@ -21,7 +21,7 @@ class ListNode {
       ListNode(int x) { val = x; }
 }
 
-public class MergeTwoSortedList {
+public class N_21_MergeTwoSortedList {
 
 	public static void main(String[] args) {
 		ListNode l11 = new ListNode(1);

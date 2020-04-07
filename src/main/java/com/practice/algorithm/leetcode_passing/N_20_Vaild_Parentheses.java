@@ -37,7 +37,7 @@ import java.util.Stack;
  * 输出: true
  *
  **/
-public class Vaild_Parentheses {
+public class N_20_Vaild_Parentheses {
 
 	public boolean isValid(String s) {
 		if ("".equals(s)) return true;

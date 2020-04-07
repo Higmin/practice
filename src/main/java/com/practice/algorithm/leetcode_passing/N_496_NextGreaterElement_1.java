@@ -35,7 +35,7 @@ import java.util.Stack;
  * nums1和nums2中所有元素是唯一的。
  * nums1和nums2 的数组大小都不超过1000。
  */
-public class NextGreaterElement_1 {
+public class N_496_NextGreaterElement_1 {
 
     public static void main(String[] args) {
         int[] nums1 = new int[]{4,1,2};

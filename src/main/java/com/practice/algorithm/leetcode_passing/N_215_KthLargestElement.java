@@ -21,7 +21,7 @@ import java.util.PriorityQueue;
  *
  * 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
  */
-public class KthLargestElement {
+public class N_215_KthLargestElement {
     public static void main(String[] args) {
         int[] nums = new int[]{3,2,1,5,6,4};
         int k = 2;

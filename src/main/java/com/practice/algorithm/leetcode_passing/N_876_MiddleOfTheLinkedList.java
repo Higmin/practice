@@ -39,7 +39,7 @@ package com.practice.algorithm.leetcode_passing;
  *     ListNode(int x) { val = x; }
  * }
  */
-public class MiddleOfTheLinkedList {
+public class N_876_MiddleOfTheLinkedList {
     public static void main(String[] args) {
         ListNode listNode1 = new ListNode(1);
         ListNode listNode2 = new ListNode(2);

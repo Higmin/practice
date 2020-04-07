@@ -16,7 +16,7 @@ package com.practice.algorithm.leetcode_passing;
  *
  * 进阶:如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  **/
-public class MaximumSubarray {
+public class N_53_MaximumSubarray {
 
 	public static void main(String[] args) {
 		int[] arr= {-2,1,-3,4,-1,2,1,-5,4};

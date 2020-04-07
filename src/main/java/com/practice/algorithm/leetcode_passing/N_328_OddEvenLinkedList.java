@@ -32,7 +32,7 @@ package com.practice.algorithm.leetcode_passing;
  *     ListNode(int x) { val = x; }
  * }
  */
-public class OddEvenLinkedList {
+public class N_328_OddEvenLinkedList {
     public ListNode oddEvenList(ListNode head) {
         // 思路： 构建两个链表分别存放奇数节点和偶数节点，遍历完之后将两个链表连接起来。
         if(head == null)  return null;

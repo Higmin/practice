@@ -35,7 +35,7 @@ package com.practice.algorithm.leetcode_passing;
  * }
  */
 
-public class ReverseNodesIn_K_Group {
+public class N_25_ReverseNodesIn_K_Group {
 
 	public static void main(String[] args) {
 		ListNode l1 = new ListNode(1);

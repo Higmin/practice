@@ -29,7 +29,7 @@ package com.practice.algorithm.leetcode_passing;
  *     ListNode(int x) { val = x; }
  * }
  */
-public class MergeKSortedLists {
+public class N_23_MergeKSortedLists {
 
     public static void main(String[] args) {
         ListNode l11 = new ListNode(1);
