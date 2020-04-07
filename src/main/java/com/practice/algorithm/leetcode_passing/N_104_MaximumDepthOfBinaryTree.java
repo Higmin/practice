@@ -68,14 +68,16 @@ public class N_104_MaximumDepthOfBinaryTree {
 			TreeNode curNode = cur.getKey();
 			Integer curValue = cur.getValue();
 			res = Math.max(res, curValue);
-			if (curNode.left != null){
-				Pair<TreeNode, Integer> leftNode = new Pair<>(curNode.left, curValue + 1);
-				stack.push(leftNode);
-			}
-			if (curNode.right != null){
+
+			if (curNode.right != null){ // 判断是否有右节点，有的话压入栈
 				Pair<TreeNode, Integer> rightNode = new Pair<>(curNode.right, curValue + 1);
 				stack.push(rightNode);
 			}
+			if (curNode.left != null){ // 判断是否有左节点，有的话压入栈
+				Pair<TreeNode, Integer> leftNode = new Pair<>(curNode.left, curValue + 1);
+				stack.push(leftNode);
+			}
+
 		}
 		return res;
 	}
