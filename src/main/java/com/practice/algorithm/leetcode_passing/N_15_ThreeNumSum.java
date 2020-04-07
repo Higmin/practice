@@ -37,7 +37,7 @@ public class N_15_ThreeNumSum {
         if(nums.length < 3) return res;
         Arrays.sort(nums);
         for(int i = 0; i < nums.length; i++){
-            if(nums[i] > 0) return res; // 如果最小的数>0，则不可能相加为0
+            if(nums[i] > 0) return res; // 如果当前固定的数的数>0，则不可能相加为0，因为当前固定的数已经是以后遍历中最小的数。
             // 定义两个指针，指向另外两个元素，一个从小到大，一个从大到小
             int left = i + 1, right= nums.length -1;
             if(i > 0 && nums[i] == nums[i-1]) continue; // 第一次去重,跳出本次循环，注意不要写成break
