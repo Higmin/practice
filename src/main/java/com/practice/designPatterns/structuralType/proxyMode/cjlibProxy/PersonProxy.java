@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
  *
  * import net.sf.cglib.proxy.Enhancer;
  * import net.sf.cglib.proxy.MethodInterceptor;
- * Enhancer 类用来设置被代理类和加强类（代理类），而 MethodInterceptor 接口主要是来处理执行逻辑。
+ * Enhancer 类用来设置被代理类和加强类（代理类）并生成代理对象，而 MethodInterceptor 接口主要是来处理执行逻辑。
  */
 public class PersonProxy implements MethodInterceptor {
 
