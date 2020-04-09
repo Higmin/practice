@@ -12,8 +12,15 @@ import java.lang.reflect.Proxy;
 /**
  * @Auther : guojianmin
  * @Date : 2019/6/20 15:14
- * @Description : 动态代理。静态和动态是由代理产生的时间段来决定的。静态代理产生于代码编译阶段，即一旦代码运行就不可变了。
+ * @Description : JDK动态代理。静态和动态是由代理产生的时间段来决定的。静态代理产生于代码编译阶段，即一旦代码运行就不可变了。
  * 它的好处理时可以为我们生成任何一个接口的代理类，并将需要增强的方法织入到任意目标函数。但它仍然具有一个局限性，就是只有实现了接口的类，才能为其实现代理。
+ *
+ *
+ * 其中有一个类和一个接口非常核心:
+ *
+ * java.lang.reflect.Proxy类。
+ * java.lang.reflect.InvocationHandle接口。
+ * Proxy 类是用于创建代理对象，而 InvocationHandler 接口主要你是来处理执行逻辑。
  */
 public class PersonProxy implements InvocationHandler {
     private Object delegate;
@@ -41,14 +48,22 @@ public class PersonProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object result = null;
         try {
-            logger.info("Before Proxy");
+            before(); // Before Proxy
             //method.invoke(owner, args)：执行该Method.invoke方法的参数是执行这个方法的对象owner，和参数数组args，可以这么理解：owner对象中带有参数args的method方法。返回值是Object，也既是该方法的返回值。
             result = method.invoke(delegate,args);
-            logger.info("After Proxy");
+            after(); // After Proxy
         } catch (Exception e) {
             throw e;
         }
         return result;
+    }
+
+    private void before() {
+        logger.info("handle before");
+    }
+
+    private void after() {
+        logger.info("handle after");
     }
 
     /**
