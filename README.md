@@ -24,7 +24,21 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
 ```
 
 详情移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring  
- - [使用自定义注解 和 AOP 切面统一打印出入参日志](https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springAOP_ApplicationScenario/aop_web_log_request_aspect)  
+````
+另外在配置 AOP 切面之前，我们需要了解下 aspectj 相关注解的作用：  
+ 
+ @Aspect：声明该类为一个注解类；  
+ @Pointcut：定义一个切点，后面跟随一个表达式，表达式可以定义为切某个注解，也可以切某个 package 下的方法；
+ 切点定义好后，就是围绕这个切点做文章了：  
+ 
+ @Before: 在切点之前，织入相关代码；  
+ @After: 在切点之后，织入相关代码;  
+ @AfterReturning: 在切点返回内容后，织入相关代码，一般用于对返回值做些加工处理的场景；  
+ @AfterThrowing: 用来处理当织入的代码抛出异常后的逻辑处理;  
+ @Around: 环绕，可以在切入点前后织入代码，并且可以自由的控制何时执行切点；
+````
+   
+ - [应用：使用自定义注解 和 AOP 切面统一打印出入参日志](https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springAOP_ApplicationScenario/aop_web_log_request_aspect)  
  
 #### 1.2 自定义 Spring 工具类 SpringUtils.java
 写的一个工具类，对于非Spring管理的类 可以通过此类 来获取 Spring 容器中的 ApplicationContext 和 Spring 容器中的 Bean。  
