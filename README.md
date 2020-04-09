@@ -356,7 +356,7 @@ LRU是Least Recently Used的缩写，即最近最少使用，是一种常用的�
 由于java 中已经有这样的数据结构了，比如 LinkedHashMap ，那么我们实现起来就简单多了。  
 代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/algorithm/lru/LruSort.java  
 #### 12.5 一致性哈希实现  
-代码：https://github.com/higminteam/practice/blob/master/md/algorithm/consistentHash/ConsistentHash.md
+代码：https://github.com/higminteam/practice/blob/master/md/algorithm/consistentHash/ConsistentHash.md  
 
  * 进阶：  
  1. 考虑到路由（RouteHandle）算法有很多种：一致性哈希、随机路由、轮询、LRU   ==> 我们可以采用策略模式来实现不同的机制  
