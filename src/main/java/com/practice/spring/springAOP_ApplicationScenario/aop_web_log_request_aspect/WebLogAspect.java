@@ -89,7 +89,7 @@ public class WebLogAspect {
 	@Around("webLog()")
 	public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		long startTime = System.currentTimeMillis();
-		Object result = proceedingJoinPoint.proceed();
+		Object result = proceedingJoinPoint.proceed(); // 目标方法执行。简单理解：环绕通知=前置+目标方法执行+后置通知，proceed方法就是用于启动目标方法执行的.
 		// 打印出参
 		logger.info("Response Args  : {}", JSON.toJSONString(result));
 		// 执行耗时
