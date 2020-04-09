@@ -63,7 +63,7 @@ public class ConsistentHash {
 		// 得到带路由的结点的Hash值
 		int hash = getHash(node);
 		// 得到大于该Hash值的所有Map
-		SortedMap<Integer, String> subMap = sortedMap.tailMap(1764547047);
+		SortedMap<Integer, String> subMap = sortedMap.tailMap(hash);
 		// 无列表时取第一个节点（形成环）
 		if (subMap.size() == 0){
 			hostName = sortedMap.get(sortedMap.firstKey());
