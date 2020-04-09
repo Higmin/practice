@@ -10,7 +10,7 @@ import java.util.TreeMap;
  * 进阶：1.考虑到路由（RouteHandle）算法有很多种：一致性哈希、随机路由、轮询、LRU   ==> 我们可以采用策略模式来实现不同的机制
  *      2. 如果每种算法的实现方式有多种，我们可以通过选择提供配置来决定哪一种实现
  **/
-public class TestHash {
+public class ConsistentHash {
 
 	/**
 	 * 待添加入Hash环的服务器列表

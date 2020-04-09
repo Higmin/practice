@@ -355,6 +355,12 @@ LRU是Least Recently Used的缩写，即最近最少使用，是一种常用的�
 常见的使用该算法的有：Redis缓存淘汰机制，这里我们用 java 手写一个 LRU 算法 ：我们采用 哈希表 + 双向链表 的数据结构实现。 
 由于java 中已经有这样的数据结构了，比如 LinkedHashMap ，那么我们实现起来就简单多了。  
 代码移步：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/algorithm/lru/LruSort.java  
+#### 12.5 一致性哈希实现  
+代码：https://github.com/higminteam/practice/blob/master/md/algorithm/consistentHash/ConsistentHash.md
+
+ * 进阶：  
+ 1. 考虑到路由（RouteHandle）算法有很多种：一致性哈希、随机路由、轮询、LRU   ==> 我们可以采用策略模式来实现不同的机制  
+ 2. 如果每种算法的实现方式有多种，我们可以通过选择提供配置来决定哪一种实现
 
 ### 十三、 Kafka 生产者消费者示例
 本小节主要是用Java实现了Kafka 生产者和消费者，采用的是kafka_2.12,版本号在pom.xml中可以找到。  
