@@ -18,6 +18,48 @@ import java.lang.reflect.Method;
  * @date 2020/4/9 14:10
  *
  * 定义切面实现：使用自定义注解 和 AOP 切面统一打印出入参日志
+ *
+ * 关于切入点表达式：下面给出一些通用切入点表达式的例子。
+ * 任意公共方法的执行：
+ * execution（public * *（..））
+ * 任何一个名字以“set”开始的方法的执行：
+ * execution（* set*（..））
+ * AccountService接口定义的任意方法的执行：
+ * execution（* com.xyz.service.AccountService.*（..））
+ * 在service包中定义的任意方法的执行：
+ * execution（* com.xyz.service.*.*（..））
+ * 在service包或其子包中定义的任意方法的执行：
+ * execution（* com.xyz.service..*.*（..））
+ * 在service包中的任意连接点（在Spring AOP中只是方法执行）：
+ * within（com.xyz.service.*）
+ * 在service包或其子包中的任意连接点（在Spring AOP中只是方法执行）：
+ * within（com.xyz.service..*）
+ * 实现了 AccountService接口的代理对象的任意连接点 （在Spring AOP中只是方法执行）：
+ * this（com.xyz.service.AccountService）
+ * 'this'在绑定表单中更加常用：- 请参见后面的通知一节中了解如何使得代理对象在通知体内可用。
+ * 实现 AccountService接口的目标对象的任意连接点 （在Spring AOP中只是方法执行）：
+ * target（com.xyz.service.AccountService）
+ * 'target'在绑定表单中更加常用：- 请参见后面的通知一节中了解如何使得目标对象在通知体内可用。
+ * 任何一个只接受一个参数，并且运行时所传入的参数是 Serializable 接口的连接点（在Spring AOP中只是方法执行）
+ * args（java.io.Serializable）
+ * 'args'在绑定表单中更加常用：- 请参见后面的通知一节中了解如何使得方法参数在通知体内可用。
+ * 请注意在例子中给出的切入点不同于  execution(* *(java.io.Serializable))： args版本只有在动态运行时候传入参数是Serializable时才匹配，而execution版本在方法签名中声明只有一个  Serializable类型的参数时候匹配。
+ * 目标对象中有一个  @Transactional 注解的任意连接点 （在Spring AOP中只是方法执行）
+ * @target（org.springframework.transaction.annotation.Transactional）
+ * '@target'在绑定表单中更加常用：- 请参见后面的通知一节中了解如何使得注解对象在通知体内可用。
+ * 任何一个目标对象声明的类型有一个  @Transactional 注解的连接点 （在Spring AOP中只是方法执行）：
+ * @within（org.springframework.transaction.annotation.Transactional）
+ * '@within'在绑定表单中更加常用：- 请参见后面的通知一节中了解如何使得注解对象在通知体内可用。
+ * 任何一个执行的方法有一个  @Transactional 注解的连接点 （在Spring AOP中只是方法执行）
+ * @annotation（org.springframework.transaction.annotation.Transactional）
+ * '@annotation'在绑定表单中更加常用：- 请参见后面的通知一节中了解如何使得注解对象在通知体内可用。
+ * 任何一个只接受一个参数，并且运行时所传入的参数类型具有 @Classified 注解的连接点（在Spring AOP中只是方法执行）
+ * @args（com.xyz.security.Classified）
+ * '@args'在绑定表单中更加常用：- 请参见后面的通知一节中了解如何使得注解对象在通知体内可用。
+ * 任何一个在名为' tradeService'的Spring bean之上的连接点 （在Spring AOP中只是方法执行）：
+ * bean（tradeService）
+ * 任何一个在名字匹配通配符表达式' *Service'的Spring bean之上的连接点 （在Spring AOP中只是方法执行）：
+ * bean（*Service）
  **/
 @Aspect
 @Component
