@@ -70,6 +70,9 @@ AOP称为面向切面编程,也是面试当中经常会被问到的一环，其�
 ##### 3. 写一个redis配置类  
  详情请见：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/spring/springbootAndRedis  
 
+##### 4. 利用redis 实现分布式锁
+思路：这个主要利用redis的setnx命令进行，setnx："set if not exists"就是如果不存在则成功设置缓存同时返回1，否则返回0 。  
+ 详情请见：https://github.com/higminteam/practice/blob/master/src/main/java/com/practice/concurrent/distributedLock/DistributedLockByRedis.java  
 #### 1.4 Springboot 自定义注解
 Spring自定义注解实现参数校验。  
 本例中以校验MAC地址（格式：080027004C44）为例，实现参数校验自定义注解及检验规则。  
