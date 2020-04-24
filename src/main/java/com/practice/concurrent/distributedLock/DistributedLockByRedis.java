@@ -45,6 +45,7 @@ public class DistributedLockByRedis {
 							long num = Long.valueOf(jedis.get("num"));
 							long ordernum = num + 1;
 							Long val = jedis.setnx(Long.toString(ordernum), "这里存：时间戳+机器节点");
+//							Long val = jedis.set(lockKey, requestId, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, expireTime); // 用这个实现最好，set的时候就加过期时间
 							if (val == 1L) {
 								System.out.println("线程 " + Thread.currentThread().getName() + " 获得锁!10s后过期 --- 开始执行 --> ");
 								jedis.expire(Long.toString(ordernum), 10);
