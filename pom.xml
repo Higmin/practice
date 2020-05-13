@@ -22,7 +22,7 @@
         <junit-jupiter-api.version>RELEASE</junit-jupiter-api.version>
         <cglib.version>3.2.5</cglib.version>
         <netty-all.version>4.1.42.Final</netty-all.version>
-        <rabbitmq.version>5.2.0</rabbitmq.version>
+        <rabbitmq.version>5.4.0</rabbitmq.version>
         <spring-boot-starter-amqp.version>1.5.2.RELEASE</spring-boot-starter-amqp.version>
         <swagger2.version>2.6.1</swagger2.version>
         <guava.version>22.0</guava.version>
