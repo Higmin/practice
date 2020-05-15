@@ -44,14 +44,14 @@ public class N_678_Valid_Parenthesis_String {
 		for (int i = 0; i < s.length(); i++){
 			char c = s.charAt(i);
 			if (c == '('){
-				++min;
-				++max;
+				min++;
+				max++;
 			} else if (c == ')'){
 				if (min > 0) min--; // 抵消一个左括号
 				if (max-- == 0) return false; // 左括号不够
 			} else {
 				if (min > 0) min--;  // 可作为右括号，抵消一个左括号
-				++max; // 可作为左括号
+				max++; // 可作为左括号
 			}
 		}
 		return min == 0;
