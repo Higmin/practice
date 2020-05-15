@@ -27,6 +27,7 @@ package com.practice.algorithm.leetcode_passing;
  * 注意:
  *
  * 字符串大小将在 [1，100] 范围内。
+ *
  **/
 public class N_678_Valid_Parenthesis_String {
 
