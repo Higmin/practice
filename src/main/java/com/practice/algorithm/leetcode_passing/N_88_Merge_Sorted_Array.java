@@ -55,7 +55,7 @@ public class N_88_Merge_Sorted_Array {
 		// int destPos : 目标数组的开始起始位置
 		// int length  : 要copy的数组的长度
 		if (p1 < m) System.arraycopy(nums1, p1, result, p1 + p2, (m + n) - (p1 + p2));
-		if (p2 < m) System.arraycopy(nums2, p2, result, p1 + p2, (m + n) - (p1 + p2));
+		if (p2 < n) System.arraycopy(nums2, p2, result, p1 + p2, (m + n) - (p1 + p2));
 
 		return result;
 	}
@@ -64,5 +64,9 @@ public class N_88_Merge_Sorted_Array {
 		int[] nums1 = {1,3,5,7,9};
 		int[] nums2 = {2,4,6,8,10};
 		System.out.println(Arrays.toString(merge(nums1, nums2)));
+
+		int[] nums3 = {1,3,5,7,9,11,13};
+		int[] nums4 = {2,4,6,8,10};
+		System.out.println(Arrays.toString(merge(nums3, nums4)));
 	}
 }
