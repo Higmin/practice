@@ -11,7 +11,6 @@ package com.practice.algorithm.leetcode_passing;
  * 下面我们用 java 手写一个 LRU 算法 ：我们采用 哈希表 + 双向链表 的数据结构实现。
  *
  * 方法 2：哈希表 + 双向链表 实现
- *
  **/
 
 import java.util.concurrent.ConcurrentHashMap;
