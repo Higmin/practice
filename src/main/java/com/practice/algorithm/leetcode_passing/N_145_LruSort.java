@@ -13,6 +13,7 @@ import java.util.Map;
  * 常见的使用该算法的有：Redis缓存淘汰机制
  * 下面我们用 java 手写一个 LRU 算法 ：我们采用 哈希表 + 双向链表 的数据结构实现。
  *
+ * 方法 1：有序字典 => java 中有实现 LinkedHashMap 可以使用
  **/
 public class N_145_LruSort<K,V>  extends LinkedHashMap<K,V> {
 	private int cacheSize;
