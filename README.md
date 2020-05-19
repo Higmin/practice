@@ -381,7 +381,7 @@ LRU是Least Recently Used的缩写，即最近最少使用，是一种常用的�
  2. 如果每种算法的实现方式有多种，我们可以通过选择提供配置来决定哪一种实现。
 #### 12.6 其他
 ##### 12.6.1 要求不用数学库，求 sqrt (2)精确到小数点后10位(Java版)
-使用二分法实现  
+本例使用二分法实现  
 代码：https://github.com/higminteam/practice/blob/master/md/algorithm/other/Sqrt.java
 
 ### 十三、 Kafka 生产者消费者示例
