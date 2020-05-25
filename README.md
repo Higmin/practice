@@ -383,6 +383,9 @@ LRU是Least Recently Used的缩写，即最近最少使用，是一种常用的�
 ##### 12.6.1 要求不用数学库，求 sqrt (2)精确到小数点后10位(Java版)
 本例使用二分法实现  
 代码：https://github.com/higminteam/practice/blob/master/md/algorithm/other/Sqrt.java
+##### 12.6.2 求 最大公约数  
+本例使用辗转相除法（欧几里得算法）  
+代码：https://github.com/higminteam/practice/blob/master/md/algorithm/other/GreatestCommonDivisor.java
 
 ### 十三、 Kafka 生产者消费者示例
 本小节主要是用Java实现了Kafka 生产者和消费者，采用的是kafka_2.12,版本号在pom.xml中可以找到。  
