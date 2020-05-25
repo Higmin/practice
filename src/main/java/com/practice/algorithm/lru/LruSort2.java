@@ -73,6 +73,15 @@ class DLinked{
 	}
 
 	/**
+	 * 将访问的节点移动到第一个元素
+	 * @param node
+	 */
+	public void moveToFirst(LinkedNode node){
+		remove(node);
+		addFirst(node);
+	}
+
+	/**
 	 * 删除链表的最后一个节点，并返回该节点
 	 * @return
 	 */
@@ -115,28 +124,26 @@ public class LruSort2 {
 		LinkedNode node = new LinkedNode(key, value);
 		// 如果有次节点，那么将此节点提前
 		if (cache.containsKey(key)){
-			// 删除旧的节点，新的插到头部
-			dLinked.remove(node);
-			dLinked.addFirst(node);
-			cache.put(key, node); // 更新 cache 中对应的数据
-		} else { // 否则添加到链表头部
-			if (capacity >= dLinked.getSize()){ // 如果到达最大容量，则删除最近最近未使用的节点（即最后一个节点）
-				LinkedNode last = dLinked.removeLast();
-				cache.remove(last.key); // todo 这里用到了节点中存储的key，所以这就是：为什么要在链表中同时存储 key 和 val，而不是只存储 val
-			}
-			// 添加新节点到链表头部
-			dLinked.addFirst(node);
-			cache.put(key,node);
+			LinkedNode getNode = cache.get(key);
+			// 删除旧的节点
+			dLinked.remove(getNode);
+		} else if (capacity <= dLinked.getSize()){ // 如果到达最大容量，则删除最近最近未使用的节点（即最后一个节点）
+			LinkedNode last = dLinked.removeLast();
+			cache.remove(last.key); // todo 这里用到了节点中存储的key，所以这就是：为什么要在链表中同时存储 key 和 val，而不是只存储 val
 		}
+		// 添加新节点到链表头部
+		dLinked.addFirst(node);
+		cache.put(key,node);
 	}
 
 	public int get(int key){
 		if (!cache.containsKey(key)){
 			return -1;
 		}
+		LinkedNode node = cache.get(key);
+		int val = node.value;
 		// 将此节点提前到头部
-		int val = cache.get(key).value;
-		put(key, val);
+		dLinked.moveToFirst(node);
 		return val;
 	}
 }
