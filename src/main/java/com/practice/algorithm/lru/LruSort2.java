@@ -73,7 +73,7 @@ class DLinked{
 	}
 
 	/**
-	 * 将访问的节点移动到第一个元素
+	 * get时，将访问的节点移动到第一个元素
 	 * @param node
 	 */
 	public void moveToFirst(LinkedNode node){
