@@ -39,6 +39,13 @@ import java.util.Stack;
  **/
 public class N_20_Vaild_Parentheses {
 
+	/**
+	 * 思路：检验类的题目，通常的思路都是 “校验不合法性” 返回false
+	 *      本题的做法是：遇到左括号就压入栈，遇到右括号判断和栈顶元素是否能匹配，不能匹配就返回false，否则（能匹配），弹出栈顶元素。
+	 *                  最终判断栈是否为空。为空的话，则合法，返回true。不为空的话，就是不合法，返回false。
+	 * @param s
+	 * @return
+	 */
 	public boolean isValid(String s) {
 		if ("".equals(s)) return true;
 		if (s == null || s.length() < 2) return false;
