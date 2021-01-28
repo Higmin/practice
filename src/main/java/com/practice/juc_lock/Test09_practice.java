@@ -1,4 +1,4 @@
-package com.practice.lock;
+package com.practice.juc_lock;
 
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
