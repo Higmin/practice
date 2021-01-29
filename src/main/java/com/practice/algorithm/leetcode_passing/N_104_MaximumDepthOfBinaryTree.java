@@ -26,18 +26,9 @@ package com.practice.algorithm.leetcode_passing;
  *
  **/
 
-import io.swagger.models.auth.In;
 import javafx.util.Pair;
 
 import java.util.Stack;
-
-/** Definition for a binary tree node. */
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(int x) { val = x; }
-}
 
 public class N_104_MaximumDepthOfBinaryTree {
 	/**
