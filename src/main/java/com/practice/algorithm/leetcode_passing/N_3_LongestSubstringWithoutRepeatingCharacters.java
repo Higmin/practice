@@ -46,7 +46,7 @@ public class N_3_LongestSubstringWithoutRepeatingCharacters {
         int res = 0;
         int begin = 0, end = 0;
         Set<Character> set = new HashSet<>();
-        while (begin < s.length() && end < s.length()) {
+        while (end < s.length()) {
             char c = s.charAt(end);
             if (!set.contains(c)) {
                 set.add(c);
