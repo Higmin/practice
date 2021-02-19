@@ -20,7 +20,7 @@ package com.practice.algorithm.leetcode_passing;
  * @version 1.0, 2021/02/19
  * @since practice 1.0.0
  */
-public class N_1001_Sorted_Merge_LCCI {
+public class N_1001_SortedMergeLCCI {
 
     // 思路：由于数组 A 和数组 B 都是有序的数组。所以我们考虑双指针从两个数组的头部比较元素大小。
     // 把每次比较中，小的元素放入到一个新的数组中，然后再遍历临时数组的元素，依次放入到数组A中即可。
