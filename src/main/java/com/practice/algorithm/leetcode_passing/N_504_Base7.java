@@ -20,6 +20,8 @@ package com.practice.algorithm.leetcode_passing;
  */
 public class N_504_Base7 {
 
+    // 思路： 10进制转其他进制 ： 除以对应进制的数，取余。去整的部分重复前面的操作。
+    // 结果 ： 将余数从低位到高位依次拼接即可。（先得的余数放在最低位（低位就是最后面））
     public static String convertToBase7(int num) {
         int temp = num;
         String result = "";
