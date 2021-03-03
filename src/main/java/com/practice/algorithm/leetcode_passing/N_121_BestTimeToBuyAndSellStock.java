@@ -27,6 +27,9 @@ package com.practice.algorithm.leetcode_passing;
  */
 public class N_121_BestTimeToBuyAndSellStock {
 
+    // 解题思路：利润 = 未来某一天的股价 - 买入当天的价格
+    // 在这里我们未来某天的价格时已知的，我们只需要确保"减数"最小，就能实现卖出当天的利润值最大，
+    // 我们再从 这些所得到的当天最大利润值 中 找到所有天数中利润最大的那一天的利润，就是我们的最终目的
     public static int maxProfit(int[] prices) {
         int min = Integer.MAX_VALUE;
         int result = 0; // 如果你不能获取任何利润，返回 0, 所以利润最小赋值为0。
