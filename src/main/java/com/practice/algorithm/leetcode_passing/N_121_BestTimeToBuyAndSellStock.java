@@ -29,7 +29,7 @@ public class N_121_BestTimeToBuyAndSellStock {
 
     public static int maxProfit(int[] prices) {
         int min = Integer.MAX_VALUE;
-        int result = 0;
+        int result = 0; // 如果你不能获取任何利润，返回 0, 所以利润最小赋值为0。
         for (int p : prices) {
             min = Math.min(min, p);
             result = Math.max(result, p - min);
