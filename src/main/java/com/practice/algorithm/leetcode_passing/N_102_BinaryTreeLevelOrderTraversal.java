@@ -1,5 +1,7 @@
 package com.practice.algorithm.leetcode_passing;
 
+import io.swagger.models.auth.In;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -44,7 +46,7 @@ public class N_102_BinaryTreeLevelOrderTraversal {
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            List level = new ArrayList();
+            List<Integer> level = new ArrayList();
             int currentLevelSize = queue.size();
 
             for (int i = 0; i < currentLevelSize; i++) {
