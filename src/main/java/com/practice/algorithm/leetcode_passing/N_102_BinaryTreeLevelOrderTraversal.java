@@ -1,7 +1,5 @@
 package com.practice.algorithm.leetcode_passing;
 
-import io.swagger.models.auth.In;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,7 +41,7 @@ public class N_102_BinaryTreeLevelOrderTraversal {
         }
 
         Queue<TreeNode> queue = new LinkedList();
-        queue.add(root);
+        queue.offer(root);
 
         while (!queue.isEmpty()) {
             List<Integer> level = new ArrayList();
@@ -53,10 +51,10 @@ public class N_102_BinaryTreeLevelOrderTraversal {
                 TreeNode node = queue.poll();
                 level.add(node.val);
                 if (node.left != null) {
-                    queue.add(node.left);
+                    queue.offer(node.left);
                 }
                 if (node.right != null) {
-                    queue.add(node.right);
+                    queue.offer(node.right);
                 }
             }
             result.add(level);
