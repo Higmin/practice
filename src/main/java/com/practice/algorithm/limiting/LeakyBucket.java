@@ -30,11 +30,9 @@ public class LeakyBucket {
 
         water = Math.max(0, water - (now - begin) / 1000 * rate); // 每秒 处理 rate 个
         if (water >= capacity) {
-            System.out.println("流量超限，执行拒绝策略~" + Thread.currentThread().getName());
             return false;
         }
         water++;
-        System.out.println(Thread.currentThread().getName() + " 当前流量数为" + water);
         begin = now;
         return true;
     }
@@ -47,7 +45,11 @@ public class LeakyBucket {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    leakyBucket.acquire();
+                    if (leakyBucket.acquire()) {
+                        System.out.println(Thread.currentThread().getName() + " 当前流量数为" + leakyBucket.water);
+                    } else {
+                        System.out.println("流量超限，执行拒绝策略~" + Thread.currentThread().getName());
+                    }
                 }
             });
             Thread.sleep(random.nextInt(1000));
