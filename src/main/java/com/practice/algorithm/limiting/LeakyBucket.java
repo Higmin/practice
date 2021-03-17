@@ -1,5 +1,6 @@
 package com.practice.algorithm.limiting;
 
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -16,9 +17,9 @@ import java.util.concurrent.Executors;
 public class LeakyBucket {
 
     // 1.桶的容量。
-    private final int capacity = 4;
+    private final int capacity = 10;
     // 2.漏水速度。
-    private final int rate = 2;
+    private final int rate = 4;
     // 3.当前的水量：用于溢出时的拒绝策略。
     private volatile long water = 0L;
     // 4.单位时间开始时间。
@@ -39,16 +40,16 @@ public class LeakyBucket {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
         LeakyBucket leakyBucket = new LeakyBucket();
-        for (int i = 0; i < 20; i++) {
+        while (true) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
                     leakyBucket.acquire();
                 }
             });
-            Thread.sleep(100);
+            Thread.sleep(100 * new Random(1).nextInt(10));
         }
     }
 }
