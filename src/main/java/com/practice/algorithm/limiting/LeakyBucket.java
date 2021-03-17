@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 漏桶算法
- * <p>
+ *
  * 漏桶算法思路很简单，请求先进入到漏桶里，漏桶以固定的速度出水，也就是处理请求，
  * 当水加的过快，则会直接溢出，也就是拒绝请求，可以看出漏桶算法能强行限制数据的传输速率。
  *
@@ -29,11 +29,11 @@ public class LeakyBucket {
 
         water = Math.max(0, water - (now - begin) / 1000 * rate);
         if (water >= capacity) {
-            System.out.println("水满了，执行拒绝策略~" + Thread.currentThread().getName());
+            System.out.println("流量超限，执行拒绝策略~" + Thread.currentThread().getName());
             return false;
         }
         water++;
-        System.out.println(Thread.currentThread().getName() + "当前水量" + water);
+        System.out.println(Thread.currentThread().getName() + " 当前流量数为" + water);
         begin = now;
         return true;
     }
