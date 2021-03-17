@@ -40,7 +40,8 @@ public class LeakyBucket {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        Random random = new Random(1);
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
         LeakyBucket leakyBucket = new LeakyBucket();
         while (true) {
             executorService.execute(new Runnable() {
@@ -49,7 +50,7 @@ public class LeakyBucket {
                     leakyBucket.acquire();
                 }
             });
-            Thread.sleep(100 * new Random(1).nextInt(10));
+            Thread.sleep(10 * random.nextInt(100));
         }
     }
 }
