@@ -59,7 +59,7 @@ public class N_198_HouseRobber {
     }
 
     public static void main(String[] args) {
-        int[] t01 = {2, 1, 1, 2};
+        int[] t01 = {2, 7, 9, 3, 1};
         System.out.println(rob(t01));
     }
 }
