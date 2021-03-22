@@ -44,10 +44,10 @@ public class N_62_UniquePaths {
     // 采用动态规划：动态方程为： dp[m][n] = dp[m][n-1] + dp[m-1][n]
     public static int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
+        // 动态方程下标防止交表越界，进行初始化。
         for (int i = 0; i < m; i++) {
             dp[i][0] = 1;
         }
-
         for (int i = 0; i < n; i++) {
             dp[0][i] = 1;
         }
