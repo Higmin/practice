@@ -27,6 +27,9 @@ import java.util.Queue;
  */
 public class N_199_BinaryTreeRightSideView {
 
+    // 右视图，可以采用二叉树的层序遍历（广度优先）
+    // 取每层的最后一个元素，即可。
+    // 同理，二叉树的左视图 取每层的第一个即可。
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
