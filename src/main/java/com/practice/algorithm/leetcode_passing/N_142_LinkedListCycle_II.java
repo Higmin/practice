@@ -40,22 +40,26 @@ public class N_142_LinkedListCycle_II {
     // 快慢指针, 从头开始跑， 追上之后，只能证明有环，但是不能保证是在最开始追上的，这也是这个题的难点。
     // 追上之后，需要寻找环开始的节点
     public static ListNode detectCycle(ListNode head) {
+        ListNode result = null;
         if (head == null) {
-            return null;
+            return result;
         }
-        ListNode slow = head, fast = head;
+        ListNode slow = head;
+        ListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (fast == slow) {
-                ListNode ptr = head;
-                while (ptr != slow) {
-                    ptr = ptr.next;
+
+            if (slow == fast) {
+                ListNode begin = head;
+                while (begin != slow) {
+                    begin = begin.next;
                     slow = slow.next;
                 }
-                return ptr;
+                return begin;
             }
         }
-        return null;
+
+        return result;
     }
 }
