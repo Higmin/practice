@@ -37,19 +37,19 @@ package com.practice.algorithm.leetcode_passing;
  */
 public class N_141_LinkedListCycle {
 
-    // 快慢指针。相遇时返回 ture。
+    // 快慢指针, 从头开始跑，相遇时返回 ture。
     public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) {
+        if (head == null) {
             return false;
         }
         ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode fast = head;
         while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
             if (slow == fast) {
                 return true;
             }
-            slow = slow.next;
-            fast = fast.next.next;
         }
         return false;
     }
