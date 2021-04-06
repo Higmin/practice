@@ -50,6 +50,9 @@ package com.practice.algorithm.leetcode_passing;
  */
 public class N_80_RemoveDuplicatesFromSortedArray_II {
 
+    // 思路：判断当前元素是不是第三个重复的元素。
+    //      如果是 --> 直接进行下一次循环。
+    //      如果不是 --> 把当前元素赋值到有效元素的正确位置上。并把有效元素的位置 + 1,准备给下一次元素赋值。
     public int removeDuplicates(int[] nums) {
         int n = nums.length;
         if (n <= 2) {
@@ -57,7 +60,7 @@ public class N_80_RemoveDuplicatesFromSortedArray_II {
         }
         int index = 2;
         for (int i = 2; i < nums.length; i++) {
-            if (nums[index - 2] != nums[i]) {
+            if (nums[i] != nums[index - 2]) {
                 nums[index] = nums[i];
                 index++;
             }
