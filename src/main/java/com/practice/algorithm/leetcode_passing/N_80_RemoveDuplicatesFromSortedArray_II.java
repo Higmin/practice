@@ -60,7 +60,7 @@ public class N_80_RemoveDuplicatesFromSortedArray_II {
         }
         int index = 2;
         for (int i = 2; i < nums.length; i++) {
-            if (nums[i] != nums[index - 2]) {
+            if (nums[index - 2] != nums[i]) {
                 nums[index] = nums[i];
                 index++;
             }
