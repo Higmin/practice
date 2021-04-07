@@ -25,8 +25,8 @@ public class GreaterThanLeftAllAndLessThanRightAll {
         Queue<Integer> leftMax = new LinkedList<>();
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            if (min > nums[i] || i == 0) {
-                leftMax.add(nums[i]);
+            if (min > nums[i]) {
+                leftMax.add(i);
             }
             min = Math.min(min, nums[i]);
         }
@@ -37,7 +37,7 @@ public class GreaterThanLeftAllAndLessThanRightAll {
         int max = Integer.MIN_VALUE;
         for (int i = nums.length - 1; i >= 0; i--) {
             if (nums[i] > max) {
-                rightMin.add(nums[i]);
+                rightMin.add(i);
             }
             max = Math.max(max, nums[i]);
         }
@@ -46,7 +46,7 @@ public class GreaterThanLeftAllAndLessThanRightAll {
         while (!leftMax.isEmpty()) {
             Integer pop = leftMax.poll();
             if (rightMin.contains(pop)) {
-                result.add(pop);
+                result.add(nums[pop]);
             }
         }
 
@@ -55,5 +55,6 @@ public class GreaterThanLeftAllAndLessThanRightAll {
 
     public static void main(String[] args) {
         System.out.println(greaterThanLeftAllAndLessThanRightAll(new int[]{9, 8, 7, 3, 4, 2, 1}).toString());
+        System.out.println(greaterThanLeftAllAndLessThanRightAll(new int[]{3, 3, 1}).toString());
     }
 }
