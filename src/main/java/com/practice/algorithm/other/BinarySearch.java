@@ -40,8 +40,10 @@ public class BinarySearch {
                 l = mid + 1;
             }
         }
-        if (a[l] >= v)
+        if (a[l] >= v) {
             return l + 1;
+        }
+
         return n + 1;
     }
 }
