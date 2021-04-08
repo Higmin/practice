@@ -31,28 +31,17 @@ public class BinarySearch {
      */
     public static int upper_bound_(int n, int v, int[] a) {
         // write code here
-        if (n <= 0) {
-            return 1;
-        }
-        int left = 0;
-        int right = n - 1;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (v == a[mid]) {
-                if (mid == 0 || a[mid - 1] < v) {
-                    return mid;
-                }
-            } else if (v < a[mid]) {
-                right = mid - 1;
-            } else if (a[mid] < v) {
-                left = mid + 1;
+        int l = 0, r = a.length - 1;
+        while (l < r) {
+            int mid = (l + r) / 2;
+            if (a[mid] >= v) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-
-        if (right < n - 1 && a[right + 1] > v) {
-            return right + 1;
-        }
-
+        if (a[l] >= v)
+            return l + 1;
         return n + 1;
     }
 }
