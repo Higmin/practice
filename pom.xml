@@ -29,7 +29,7 @@
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <kafka_2.12.version>0.10.2.2</kafka_2.12.version>
         <druid.version>1.1.10</druid.version>
-        <fastjson.version>1.2.58</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
     </properties>
 
     <dependencies>
